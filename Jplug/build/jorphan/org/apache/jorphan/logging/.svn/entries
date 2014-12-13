@@ -1,0 +1,41 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk/src/jorphan/org/apache/jorphan/logging
+http://svn.apache.org/repos/asf
+
+
+
+2012-09-05T21:17:10.380788Z
+1381377
+pmouawad
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+LoggingManager.java
+file
+
+
+
+
+2013-09-14T12:25:54.000000Z
+eb774ffdf1332043fae10afe39b7d953
+2012-09-05T21:17:10.380788Z
+1381377
+pmouawad
+has-props
+

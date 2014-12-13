@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1517844/jmeter/trunk/src/reports/org/apache/jmeter/report/writers
+END
+ReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/ReportWriter.java
+END
+ReportSummary.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/ReportSummary.java
+END
+HTMLReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/HTMLReportWriter.java
+END
+AbstractReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1517844/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/AbstractReportWriter.java
+END
+DefaultPageSummary.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1413864/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/DefaultPageSummary.java
+END
+DefaultReportSummary.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1413864/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/DefaultReportSummary.java
+END
+PageSummary.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/report/writers/PageSummary.java
+END

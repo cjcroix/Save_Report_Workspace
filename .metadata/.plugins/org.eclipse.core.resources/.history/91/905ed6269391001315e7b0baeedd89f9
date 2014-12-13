@@ -1,0 +1,1169 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+
+package org.apache.jmeter.visualizers;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableCellRenderer;
+
+import org.apache.jmeter.gui.CommentPanel;
+import org.apache.jmeter.gui.util.FileDialoger;
+import org.apache.jmeter.gui.util.HeaderAsPropertyRenderer;
+import org.apache.jmeter.gui.util.VerticalPanel;
+import org.apache.jmeter.samplers.Clearable;
+import org.apache.jmeter.samplers.SampleResult;
+import org.apache.jmeter.samplers.StatisticalSampleResult;
+import org.apache.jmeter.save.CSVSaveService;
+import org.apache.jmeter.testelement.TestElement;
+import org.apache.jmeter.util.Calculator;
+import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.visualizers.gui.AbstractVisualizer;
+import org.apache.jorphan.gui.NumberRenderer;
+import org.apache.jorphan.gui.ObjectTableModel;
+import org.apache.jorphan.gui.RateRenderer;
+import org.apache.jorphan.gui.RendererUtils;
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.jorphan.reflect.Functor;
+import org.apache.jorphan.util.JOrphanUtils;
+import org.apache.log.Logger;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.StandardXYItemRenderer;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.time.RegularTimePeriod;
+import org.jfree.data.time.Second;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
+import org.jfree.data.time.TimeSeriesDataItem;
+import org.jfree.ui.RectangleInsets;
+
+/**
+ * Simpler (lower memory) version of Aggregate Report (StatVisualizer).
+ * Excludes the Median and 90% columns, which are expensive in memory terms
+ */
+public class CreateReport extends AbstractVisualizer implements Clearable, ActionListener {
+
+    private static final long serialVersionUID = 240L;
+
+    private static final Logger log = LoggingManager.getLoggerForClass();
+
+    private static final String USE_GROUP_NAME = "useGroupName"; //$NON-NLS-1$
+
+    private static final String SAVE_HEADERS   = "saveHeaders"; //$NON-NLS-1$
+    private JButton browse = new JButton("CreateImage");
+    private  final String BRO = "bro";
+    BufferedImage img = new BufferedImage(800, 500,BufferedImage.TYPE_INT_RGB); 
+    File f1 = new File("MyFile.jpg");
+    
+    private static final String[] COLUMNS = {
+            "sampler_label",               //$NON-NLS-1$
+            "aggregate_report_count",      //$NON-NLS-1$
+            "average",                     //$NON-NLS-1$
+            "aggregate_report_min",        //$NON-NLS-1$
+            "aggregate_report_max",        //$NON-NLS-1$
+            "aggregate_report_stddev",     //$NON-NLS-1$
+            "aggregate_report_error%",     //$NON-NLS-1$
+            "aggregate_report_rate",       //$NON-NLS-1$
+            "aggregate_report_bandwidth",  //$NON-NLS-1$
+            "average_bytes",               //$NON-NLS-1$
+            };
+
+    private final String TOTAL_ROW_LABEL
+        = JMeterUtils.getResString("aggregate_report_total_label");  //$NON-NLS-1$
+
+    private JTable myJTable;
+
+    private JScrollPane myScrollPane;
+
+    private final JButton saveTable =
+        new JButton(JMeterUtils.getResString("aggregate_graph_save_table"));            //$NON-NLS-1$
+
+    private final JCheckBox saveHeaders = // should header be saved with the data?
+        new JCheckBox(JMeterUtils.getResString("aggregate_graph_save_table_header"),true);    //$NON-NLS-1$
+
+    private final JCheckBox useGroupName =
+        new JCheckBox(JMeterUtils.getResString("aggregate_graph_use_group_name"));            //$NON-NLS-1$
+
+    transient ObjectTableModel model;
+  //decl for graph
+    //  transient private StatAggTreeTableModel _model;
+      private transient JFreeChart _chart;
+      private transient ChartPanel _chartPanel;
+
+      private TimeSeriesCollection _dataSet1;
+      private TimeSeriesCollection _dataSet2;
+      private TimeSeries _throughPutSeries;
+      private TimeSeries _averageSeries;
+      private StatAggSampler _calculator;
+      // How long  sampleinterval for each chart sample update
+      private int _chartSampleInterval = 5000;
+      // Maximus number of samples i chart, to prevent it from growing
+      // to much. When the max item count is reached the series is resampled
+      // by a factor _resampleFactor.
+      private int _maxChartItemCount = 1000;
+      private int _resampleFactor = 5;
+      private long _lastChartUpdate = 0;
+      private int _resampleIdx = 0;
+      //graph decl ends
+
+    /**
+     * Lock used to protect tableRows update + model update
+     */
+    private final transient Object lock = new Object();
+    CommentPanel commentPanel = new CommentPanel();
+
+    private final Map<String, Calculator> tableRows =
+        new ConcurrentHashMap<String, Calculator>();
+
+    // Column renderers
+    private static final TableCellRenderer[] RENDERERS =
+        new TableCellRenderer[]{
+            null, // Label
+            null, // count
+            null, // Mean
+            null, // Min
+            null, // Max
+            new NumberRenderer("#0.00"), // Std Dev.
+            new NumberRenderer("#0.00%"), // Error %age
+            new RateRenderer("#.0"),      // Throughput
+            new NumberRenderer("#0.00"),  // kB/sec
+            new NumberRenderer("#.0"),    // avg. pageSize
+        };
+
+    public String getStaticLabel() {
+   	 return "Create Report";
+   	 }
+    public CreateReport() {
+        super();
+        model = new ObjectTableModel(COLUMNS,
+                Calculator.class,// All rows have this class
+                new Functor[] {
+                    new Functor("getLabel"),              //$NON-NLS-1$
+                    new Functor("getCount"),              //$NON-NLS-1$
+                    new Functor("getMeanAsNumber"),       //$NON-NLS-1$
+                    new Functor("getMin"),                //$NON-NLS-1$
+                    new Functor("getMax"),                //$NON-NLS-1$
+                    new Functor("getStandardDeviation"),  //$NON-NLS-1$
+                    new Functor("getErrorPercentage"),    //$NON-NLS-1$
+                    new Functor("getRate"),               //$NON-NLS-1$
+                    new Functor("getKBPerSecond"),        //$NON-NLS-1$
+                    new Functor("getAvgPageBytes"),       //$NON-NLS-1$
+                },
+                new Functor[] { null, null, null, null, null, null, null, null , null, null },
+                new Class[] { String.class, Long.class, Long.class, Long.class, Long.class,
+                              String.class, String.class, String.class, String.class, String.class });
+        clearData();
+        init();
+    }
+
+    /** @deprecated - only for use in testing */
+    @Deprecated
+    public static boolean testFunctors(){
+        SummaryReport instance = new SummaryReport();
+        return instance.model.checkFunctors(null,instance.getClass());
+    }
+
+    @Override
+    public String getLabelResource() {
+        return "save_report";  //$NON-NLS-1$
+    }
+
+    @Override
+    public void add(final SampleResult res) {
+        final String sampleLabel = res.getSampleLabel(useGroupName.isSelected());
+        try {
+         //   _model.addSample(res, host);
+            addToChart(res);
+          } catch (Exception e) {
+            System.out.println("add(...): Error at: " + new Date());
+            e.printStackTrace();
+          }
+        
+        JMeterUtils.runSafe(new Runnable() {
+            @Override
+            public void run() {
+                Calculator row = null;
+                synchronized (lock) {
+                    row = tableRows.get(sampleLabel);
+                    if (row == null) {
+                        row = new Calculator(sampleLabel);
+                        tableRows.put(row.getLabel(), row);
+                        model.insertRow(row, model.getRowCount() - 1);
+                    }
+                }
+                /*
+                 * Synch is needed because multiple threads can update the counts.
+                 */
+                synchronized(row) {
+                    row.addSample(res);
+                }
+                Calculator tot = tableRows.get(TOTAL_ROW_LABEL);
+                synchronized(tot) {
+                    tot.addSample(res);
+                }
+                model.fireTableDataChanged();                
+            }
+        });
+    }
+
+    private void addToChart(SampleResult res)
+    {
+      if (_calculator == null) {
+        _calculator = new StatAggSampler(null);
+      }
+      _calculator.addSample(res);
+
+      long tm = System.currentTimeMillis();
+      if (tm > (_lastChartUpdate + _chartSampleInterval)) {
+        updateChart();
+      }
+    }
+
+    private synchronized void updateChart()
+    {
+      if (_lastChartUpdate >= 0) {
+        Second now = new Second();
+        addOrUpdateValue(_throughPutSeries, now, _calculator.getMaxThroughput());
+//        System.out.println("_calculator.getMaxThroughput(): "+ _calculator.getMaxThroughput());
+        addOrUpdateValue(_averageSeries, now, _calculator.getMean());
+        if (_throughPutSeries.getItemCount() >= _maxChartItemCount) {
+          resampleChartSeries();
+        }
+      }
+
+      _lastChartUpdate = System.currentTimeMillis();
+      _calculator = new StatAggSampler(null);
+    }
+
+    private void setDataSetNotify(boolean notify)
+    {
+      try {
+        _throughPutSeries.setNotify(notify);
+      } catch (Exception e) {
+        System.out.println("setDataSetNotiy(..): Error at: " + new Date());
+        e.printStackTrace();
+      }
+      try {
+        _averageSeries.setNotify(notify);
+      } catch (Exception e) {
+        System.out.println("setDataSetNotiy(..): Error at: " + new Date());
+        e.printStackTrace();
+      }
+    }
+    private void resampleChartSeries()
+    {
+      try {
+        System.out.println("Resampling, at: " + new Date() + ", Cursor: " + _resampleIdx);
+        // Disable dataset notification during resampling
+        setDataSetNotify(false);
+        // make a backup COPY of current timeseries
+        ArrayList tp = new ArrayList(_throughPutSeries.getItems());
+        ArrayList av = new ArrayList(_averageSeries.getItems());
+
+        // Clear timeseries.
+        _throughPutSeries.clear();
+        _averageSeries.clear();
+
+
+        // Resample
+        resample(av, _averageSeries);
+        resample(tp, _throughPutSeries);
+
+        // Save current index, from where next resample wil occur
+        _resampleIdx = _averageSeries.getItemCount();
+      } finally {
+        // Finally enable dataset notification during resampling
+        setDataSetNotify(true);
+        System.out.println("Resampling DONE, at: " + new Date() + ", Cursor: " + _resampleIdx);
+      }
+    }
+
+
+    private void resample(ArrayList items, TimeSeries ts)
+    {
+      int cursor = _resampleIdx;
+
+      // To prevent the timeseries history to be resamped
+      // each time, we restart the resampling from where the last
+      // ended.
+      System.out.println("Resample, items size: " + items.size() + ", Cursor: " + cursor);
+      if (cursor >= _maxChartItemCount) {
+        // we have now reach the end of the timeseries,
+        // now restart the sampling from the root.
+        cursor = 0;
+        System.out.println("Resetting cursor!");
+      }
+
+      // Just copy those items less than cursor index to timeseries
+      for (int i = 0; i < cursor; i++) {
+        TimeSeriesDataItem item = (TimeSeriesDataItem)items.get(i);
+        addValue(ts, item);
+      }
+
+      double sampleValue = 0;
+      int sampleCount = 0;
+      for (int i = cursor; i < items.size(); i++) {
+        TimeSeriesDataItem item = (TimeSeriesDataItem)items.get(i);
+        RegularTimePeriod period = item.getPeriod();
+        Number value = item.getValue();
+        sampleValue += value.doubleValue();
+        sampleCount++;
+
+        if (((i + 1) % _resampleFactor) == 0) {
+          sampleValue /= sampleCount;
+          addValue(ts, period, sampleValue);
+          sampleValue = sampleCount = 0;
+        }
+      }
+
+    }
+   private void addValue(TimeSeries ts, RegularTimePeriod period, double value)
+    {
+      TimeSeriesDataItem item = new TimeSeriesDataItem(period, value);
+      addValue(ts, item);
+    }
+   private void addValue(TimeSeries ts, TimeSeriesDataItem item)
+   {
+     if (item != null) {
+       try {
+         ts.add(item);
+       } catch (Exception e) {
+         System.out.println("addValue(..): Error at: " + new Date());
+         e.printStackTrace();
+       }
+     }
+   }
+   private void addOrUpdateValue(TimeSeries ts, Second period, double value)
+    {
+      try {
+        ts.addOrUpdate(period, value);
+      } catch (Exception e) {
+        System.out.println("addOrUpdateValue(..): Error at: " + new Date());
+        e.printStackTrace();
+      }
+    }
+    
+    /**
+     * Clears this visualizer and its model, and forces a repaint of the table.
+     */
+    @Override
+    public void clearData() {
+        //Synch is needed because a clear can occur while add occurs
+        synchronized (lock) {
+            model.clearData();
+            tableRows.clear();
+            tableRows.put(TOTAL_ROW_LABEL, new Calculator(TOTAL_ROW_LABEL));
+            model.addRow(tableRows.get(TOTAL_ROW_LABEL));
+        }
+    }
+
+    /**
+     * Main visualizer setup.
+     */
+    private void init() {
+        this.setLayout(new BorderLayout());
+        browse.setActionCommand("bro");
+        browse.setActionCommand(BRO);
+        
+        
+        // MAIN PANEL
+        JPanel mainPanel = new JPanel();
+        Border margin = new EmptyBorder(10, 10, 5, 10);
+
+        mainPanel.setBorder(margin);
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
+        mainPanel.add(makeTitlePanel());
+        _chart = createChart();
+        
+        myJTable = new JTable(model);
+        myJTable.getTableHeader().setDefaultRenderer(new HeaderAsPropertyRenderer());
+        myJTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        RendererUtils.applyRenderers(myJTable, RENDERERS);
+        myScrollPane = new JScrollPane(myJTable);
+        this.add(mainPanel, BorderLayout.NORTH);
+        this.add(myScrollPane, BorderLayout.CENTER);
+        saveTable.addActionListener(this);
+        JPanel opts = new JPanel();
+        opts.add(browse,BorderLayout.NORTH);
+        opts.add(useGroupName, BorderLayout.WEST);
+        opts.add(saveTable, BorderLayout.CENTER);
+        opts.add(saveHeaders, BorderLayout.EAST);
+        this.add(opts,BorderLayout.SOUTH);
+      
+       
+        
+    }
+    private JFreeChart createChart()
+    {
+      setupDatasets();
+
+      final JFreeChart chart = ChartFactory.createTimeSeriesChart(null,
+                                                                  "Time",
+                                                                  "ThroughPut",
+                                                                  _dataSet1,
+                                                                  true,
+                                                                  true,
+                                                                  false);
+      final XYPlot plot = chart.getXYPlot();
+      plot.setBackgroundPaint(Color.lightGray);
+      plot.setDomainGridlinePaint(Color.white);
+      plot.setRangeGridlinePaint(Color.white);
+      plot.setAxisOffset(new RectangleInsets(5D, 5D, 5D, 5D));
+
+      ValueAxis axis = plot.getDomainAxis();
+      axis.setAutoRange(true);
+      //axis.setFixedAutoRange(12 * 3600 * 1000);  // 12 Hours
+
+      XYItemRenderer renderer1 = plot.getRenderer();
+      renderer1.setSeriesPaint(0, Color.BLACK);
+
+
+      final NumberAxis axis2 = new NumberAxis("Response Time");
+      axis2.setAutoRangeIncludesZero(false);
+      plot.setRangeAxis(1, axis2);
+      plot.setDataset(1, _dataSet2);
+      plot.mapDatasetToRangeAxis(1, 1);
+
+
+      StandardXYItemRenderer renderer2 = new StandardXYItemRenderer();
+      renderer2.setSeriesPaint(0, new Color(0, 153, 255));
+      plot.setRenderer(1, renderer2);
+
+      chart.setBackgroundPaint(Color.white);
+
+      return chart;
+    }
+    private void setupDatasets()
+    {
+      setupTimeSeries();
+
+      _dataSet1 = new TimeSeriesCollection();
+      _dataSet1.addSeries(_throughPutSeries);
+      _dataSet2 = new TimeSeriesCollection();
+      _dataSet2.addSeries(_averageSeries);
+    }
+    private void setupTimeSeries()
+    {
+      _throughPutSeries = new TimeSeries("Throughput, hits/sec", Second.class);
+      _throughPutSeries.setMaximumItemCount(_maxChartItemCount);
+      _averageSeries = new TimeSeries("Average Response Time, msec", Second.class);
+      _averageSeries.setMaximumItemCount(_maxChartItemCount);
+    }
+    protected Container makeTitlePanel() {
+        VerticalPanel titlePanel = new VerticalPanel();
+        titlePanel.add(createTitleLabel());
+        VerticalPanel contentPanel = new VerticalPanel();
+        contentPanel.setBorder(BorderFactory.createEtchedBorder());
+        contentPanel.add(getNamePanel());       
+        contentPanel.add(commentPanel);
+        titlePanel.add(contentPanel);
+        return titlePanel;
+    }
+
+    @Override
+    public void modifyTestElement(TestElement c) {
+        super.modifyTestElement(c);
+        c.setProperty(USE_GROUP_NAME, useGroupName.isSelected(), false);
+        c.setProperty(SAVE_HEADERS, saveHeaders.isSelected(), true);
+    }
+
+    @Override
+    public void configure(TestElement el) {
+        super.configure(el);
+        useGroupName.setSelected(el.getPropertyAsBoolean(USE_GROUP_NAME, false));
+        saveHeaders.setSelected(el.getPropertyAsBoolean(SAVE_HEADERS, true));
+    }
+
+  
+    @Override
+    public void actionPerformed(ActionEvent ev) {
+    	String action = ev.getActionCommand();
+    	if (action.equals(BRO)) {
+    		 _chart = createChart();
+    	      
+    	        img=_chart.createBufferedImage(800, 500);
+    	        try {
+    				ImageIO.write(img, "JPEG", f1);
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    		
+    	}
+    	if (ev.getSource() == saveTable) {
+        
+            JFileChooser chooser = FileDialoger.promptToSaveFile("summary.csv");//$NON-NLS-1$
+            if (chooser == null) {
+                return;
+            }
+            FileWriter writer = null;
+            try {
+                writer = new FileWriter(chooser.getSelectedFile());
+                CSVSaveService.saveCSVStats(model,writer, saveHeaders.isSelected());
+            } catch (FileNotFoundException e) {
+                log.warn(e.getMessage());
+            } catch (IOException e) {
+                log.warn(e.getMessage());
+            } finally {
+                JOrphanUtils.closeQuietly(writer);
+            }
+        }
+    }
+}
+ class StatAggCalculator
+implements Serializable
+{
+double sum = 0;
+
+double sumOfSquares = 0;
+
+double mean = 0;
+
+double min = Double.MAX_VALUE;
+
+double max = Double.MIN_VALUE;
+
+double deviation = 0;
+
+int count = 0;
+
+long bytes = 0;
+
+public void clear()
+{
+  sum = 0;
+  sumOfSquares = 0;
+  mean = 0;
+  deviation = 0;
+  count = 0;
+}
+
+public void addValue(long newValue)
+{
+  Number val = new Long(newValue);
+  addValue(val);
+}
+
+public void addValue(int newValue)
+{
+  Number val = new Integer(newValue);
+  addValue(val);
+}
+
+public void addValue(float newValue)
+{
+  Number val = new Float(newValue);
+  addValue(val);
+}
+
+public void addValue(double newValue)
+{
+  Number val = new Double(newValue);
+  addValue(val);
+}
+
+public void addBytes(long newValue)
+{
+  bytes += newValue;
+}
+
+
+public Number getMedian()
+{
+  return new Long(0);
+}
+
+public long getTotalBytes()
+{
+  return bytes;
+}
+
+/**
+ * Get the value which %percent% of the values are less than. This works
+ * just like median (where median represents the 50% point). A typical
+ * desire is to see the 90% point - the value that 90% of the data points
+ * are below, the remaining 10% are above.
+ *
+ * @param percent
+ * @return
+ */
+public Number getPercentPoint(float percent)
+{
+  return new Long(0);
+}
+
+/**
+ * Get the value which %percent% of the values are less than. This works
+ * just like median (where median represents the 50% point). A typical
+ * desire is to see the 90% point - the value that 90% of the data points
+ * are below, the remaining 10% are above.
+ *
+ * @param percent
+ * @return
+ */
+public Number getPercentPoint(double percent)
+{
+  return new Long(0);
+}
+
+/**
+ * The method has a limit of 1% as the finest granularity. We do this to
+ * make sure we get a whole number for iterating.
+ *
+ * @param percentRange
+ * @return
+ */
+/*	public synchronized HashMap getDistribution() {
+		HashMap items = new HashMap();
+		Iterator itr = this.values.iterator();
+		Long n = new Long(0);
+		Number[] dis = new Number[0];
+		while (itr.hasNext()) {
+			Long nx = (Long) itr.next();
+			if (items.containsKey(nx)) {
+				dis = (Number[]) items.get(nx);
+				dis[1] = new Integer(dis[1].intValue() + 1);
+				items.put(nx, dis);
+			} else {
+				n = nx;
+				dis = new Number[2];
+				dis[0] = n;
+				dis[1] = new Integer(1);
+				items.put(n, dis);
+			}
+		}
+		return items;
+	}
+*/
+public double getMean()
+{
+  return mean;
+}
+
+public double getStandardDeviation()
+{
+  return deviation;
+}
+
+public Number getMin()
+{
+  return new Double(min);
+}
+
+public Number getMax()
+{
+  return new Double(max);
+}
+
+public int getCount()
+{
+  return count;
+}
+
+public void addValue(Number val)
+{
+  count++;
+  double currentVal = val.doubleValue();
+  sum += currentVal;
+  sumOfSquares += currentVal * currentVal;
+  mean = sum / count;
+  min = Math.min(val.doubleValue(), min);
+  max = Math.max(val.doubleValue(), max);
+  deviation = Math.sqrt((sumOfSquares / count) - (mean * mean));
+}
+
+
+
+
+}
+
+  class StatAggSampler
+ implements Serializable
+ {
+ 	static Logger log = LoggingManager.getLoggerForClass();
+
+ 	private static DecimalFormat rateFormatter = new DecimalFormat("#.0");
+
+ 	private static DecimalFormat errorFormatter = new DecimalFormat("#0.00%");
+
+ 	private static DecimalFormat kbFormatter = new DecimalFormat("#0.00");
+
+ 	private StatAggCalculator calculator = new StatAggCalculator();
+
+ 	//private ArrayList storedValues = new ArrayList();
+ 	private Sample currentSample;
+
+ 	private double maxThroughput;
+
+ 	private long firstTime;
+
+ 	private String label;
+
+ 	// private int index;
+
+ 	private StatAggSampler()
+ 	{// Don't (can't) use this...
+ 	}
+
+ 	/**
+ 	 * Use this constructor.
+ 	 */
+ 	public StatAggSampler(String label)
+ 	{
+ 		this.label = label;
+ 		init();
+ 	}
+
+ 	/**
+ 	 * Essentially a copy function
+ 	 *
+ 	 * @param stat
+ 	 */
+ 	/*public StatAggSampler(StatAggSampler stat) {
+     this(stat.label);
+     addSamples(stat);
+   }*/
+
+ 	private void init()
+ 	{
+ 		firstTime = Long.MAX_VALUE;
+ 		calculator.clear();
+ 		//storedValues.clear();
+ 		maxThroughput = Double.MIN_VALUE;
+ 	}
+
+ 	/*public void addSamples(StatAggSampler ssc) {
+     calculator.addAll(ssc.calculator);
+     //storedValues.addAll(ssc.storedValues);
+     //Collections.sort(storedValues);
+     if (firstTime > ssc.firstTime) {
+       firstTime = ssc.firstTime;
+     }
+   }*/
+
+ 	/**
+ 	 * Clear the counters (useful for differential stats)
+ 	 */
+ 	public synchronized void clear()
+ 	{
+ 		init();
+ 	}
+
+ 	public Sample getCurrentSample()
+ 	{
+ 		/*if (storedValues.size() == 0) {
+       return new Sample();
+     }
+     return (Sample) storedValues.get(storedValues.size() - 1);*/
+
+ 		if (currentSample == null) {
+ 			return new Sample();
+ 		}
+
+ 		return currentSample;
+ 	}
+
+ 	/**
+ 	 * Get the elapsed time for the samples
+ 	 *
+ 	 * @return how long the samples took
+ 	 */
+ 	public long getElapsed()
+ 	{
+ 		if (getCurrentSample().getEndTime() == 0)
+ 			return 0;// No samples collected ...
+ 		return getCurrentSample().getEndTime() - firstTime;
+ 	}
+
+ 	/**
+ 	 * Returns the throughput associated to this sampler in requests per second.
+ 	 * May be slightly skewed because it takes the timestamps of the first and
+ 	 * last samples as the total time passed, and the test may actually have
+ 	 * started before that start time and ended after that end time.
+ 	 */
+ 	public double getRate()
+ 	{
+ 		if (calculator.getCount() == 0)
+ 			return 0.0; // Better behaviour when howLong=0 or lastTime=0
+
+ 		return getCurrentSample().getThroughput();
+ 	}
+
+ 	/**
+ 	 * Returns a String that represents the throughput associated for this
+ 	 * sampler, in units appropriate to its dimension:
+ 	 * <p/>
+ 	 * The number is represented in requests/second or requests/minute or
+ 	 * requests/hour.
+ 	 * <p/>
+ 	 * Examples: "34.2/sec" "0.1/sec" "43.0/hour" "15.9/min"
+ 	 *
+ 	 * @return a String representation of the rate the samples are being taken
+ 	 *         at.
+ 	 */
+ 	public String getRateString()
+ 	{
+ 		double rate = getRate();
+
+ 		if (rate == Double.MAX_VALUE) {
+ 			return "N/A";
+ 		}
+
+ 		String unit = "sec";
+
+ 		if (rate < 1.0) {
+ 			rate *= 60.0;
+ 			unit = "min";
+ 		}
+ 		if (rate < 1.0) {
+ 			rate *= 60.0;
+ 			unit = "hour";
+ 		}
+
+ 		String rval = rateFormatter.format(rate) + "/" + unit;
+
+ 		return (rval);
+ 	}
+
+ 	/**
+ 	 * calculates the average page size, which means divide the bytes by number
+ 	 * of samples.
+ 	 *
+ 	 * @return
+ 	 */
+ 	public double getPageSize()
+ 	{
+ 		double rate = 0;
+ 		if (this.getElapsed() > 0 && calculator.getTotalBytes() > 0) {
+ 			rate = calculator.getTotalBytes() / ((double)this.getElapsed() / 1000);
+ 		}
+ 		if (rate < 0) {
+ 			rate = 0;
+ 		}
+ 		return rate;
+ 	}
+
+ 	/**
+ 	 * formats the rate
+ 	 *
+ 	 * @return
+ 	 */
+ 	public String getPageSizeString()
+ 	{
+ 		double rate = getPageSize() / 1024;
+ 		return kbFormatter.format(rate);
+ 	}
+
+ 	public String getLabel()
+ 	{
+ 		return label;
+ 	}
+
+ 	/**
+ 	 * Records a sample.
+ 	 */
+ 	public Sample addSample(SampleResult res)
+ 	{
+
+ 		synchronized (calculator) {
+ 			long byteslength = 0;
+ 			// in case the sampler doesn't return the contents
+ 			// we see if the bytes was set
+ 			if (res.getResponseData() == null || res.getResponseData().length == 0) {
+ 				byteslength = res.getBytes();
+ 			} else {
+ 				byteslength = res.getResponseData().length;
+ 			}
+ 			// if there was more than 1 loop in the sample, we
+ 			// handle it appropriately
+ 			if (res.getSampleCount() > 1) {
+ 				long time = res.getTime() / res.getSampleCount();
+ 				long resbytes = byteslength / res.getSampleCount();
+ 				for (int idx = 0; idx < res.getSampleCount(); idx++) {
+ 					calculator.addValue(time);
+ 					calculator.addBytes(resbytes);
+ 				}
+ 			} else {
+ 				calculator.addValue(res.getTime());
+ 				calculator.addBytes(byteslength);
+ 			}
+ 			setStartTime(res);
+ 			long eCount = getCurrentSample().getErrorCount();
+ 			if (res instanceof StatisticalSampleResult) {
+ 				eCount += ((StatisticalSampleResult)res).getErrorCount();
+ 			} else if (!res.isSuccessful()) {
+ 				eCount++;
+ 			}
+ 			long endTime = getEndTime(res);
+ 			long howLongRunning = endTime - firstTime;
+
+ 			double throughput = 0;
+ 			if (howLongRunning <= 0) {
+ 				//if the howLongRunning  = 0 then we discard the data and take the current maxThroughput 
+ 				throughput = maxThroughput;
+// 				System.out.println("we discard the data and take the current maxThroughput"); 
+ 			} else {
+ 				throughput = ((double)calculator.getCount() / (double)howLongRunning) * 1000.0;
+ 			}
+ 			if (throughput > maxThroughput) {
+ 				maxThroughput = throughput;
+ 			}
+ 			currentSample = new Sample(null,
+ 					res.getTime(),
+ 					(long)calculator.getMean(),
+ 					(long)calculator.getStandardDeviation(),
+ 					calculator.getMedian().longValue(),
+ 					calculator.getPercentPoint(0.500).longValue(),
+ 					throughput,
+ 					eCount,
+ 					res.isSuccessful(),
+ 					calculator.getCount(),
+ 					endTime);
+ 			//storedValues.add(s);
+ 			//System.out.println("SampleEvent: '" + res.getSampleLabel() + "', Bytes: " + byteslength + ",Count: " + res.getSampleCount() + ", Errors: " + eCount);
+ 		}
+
+ 		return currentSample;
+ 	}
+
+ 	/*public List getSamples() {
+     return storedValues;
+   }
+
+   public Sample getSample(int index) {
+     if (index < storedValues.size()) {
+       return (Sample) storedValues.get(index);
+     }
+     return null;
+   }*/
+
+ 	private long getEndTime(SampleResult res)
+ 	{
+ 		long endTime = res.getTimeStamp();
+ 		long lastTime = getCurrentSample().getEndTime();
+ 		if (res.isStampedAtStart()) {
+ 			endTime += res.getTime();
+ 		}
+ 		if (lastTime < endTime) {
+ 			lastTime = endTime;
+ 		}
+ 		return lastTime;
+ 	}
+
+ 	/**
+ 	 * @param res
+ 	 */
+ 	private void setStartTime(SampleResult res)
+ 	{
+ 		long startTime = res.getTimeStamp();
+ 		if (!res.isStampedAtStart()) {
+ 			startTime -= res.getTime();
+ 		}
+ 		if (firstTime > startTime) {
+ 			// this is our first sample, set the start time to current timestamp
+ 			firstTime = startTime;
+ 		}
+ 	}
+
+ 	/**
+ 	 * Returns the raw double value of the percentage of samples with errors
+ 	 * that were recorded. (Between 0.0 and 1.0) If you want a nicer return
+ 	 * format, see {@link #getErrorPercentageString()}.
+ 	 *
+ 	 * @return the raw double value of the percentage of samples with errors
+ 	 *         that were recorded.
+ 	 */
+ 	public double getErrorPercentage()
+ 	{
+ 		double rval = 0.0;
+
+ 		if (calculator.getCount() == 0) {
+ 			return (rval);
+ 		}
+ 		rval = (double)getCurrentSample().getErrorCount() / (double)calculator.getCount();
+ 		return (rval);
+ 	}
+
+ 	/**
+ 	 * Returns a String which represents the percentage of sample errors that
+ 	 * have occurred. ("0.00%" through "100.00%")
+ 	 *
+ 	 * @return a String which represents the percentage of sample errors that
+ 	 *         have occurred.
+ 	 */
+ 	public String getErrorPercentageString()
+ 	{
+ 		double myErrorPercentage = this.getErrorPercentage();
+ 		if (myErrorPercentage < 0) {
+ 			myErrorPercentage = 0.0;
+ 		}
+
+ 		return (errorFormatter.format(myErrorPercentage));
+ 	}
+
+ 	/**
+ 	 * For debugging purposes, mainly.
+ 	 */
+ 	public String toString()
+ 	{
+ 		StringBuffer mySB = new StringBuffer();
+
+ 		mySB.append("Samples: " + this.getCount() + "  ");
+ 		mySB.append("Avg: " + this.getMean() + "  ");
+ 		mySB.append("Min: " + this.getMin() + "  ");
+ 		mySB.append("Max: " + this.getMax() + "  ");
+ 		mySB.append("Error Rate: " + this.getErrorPercentageString() + "  ");
+ 		mySB.append("Sample Rate: " + this.getRateString());
+ 		return (mySB.toString());
+ 	}
+
+ 	/**
+ 	 * @return errorCount
+ 	 */
+ 	public long getErrorCount()
+ 	{
+ 		return getCurrentSample().getErrorCount();
+ 	}
+
+ 	/**
+ 	 * @return Returns the maxThroughput.
+ 	 */
+ 	public double getMaxThroughput()
+ 	{
+// 		System.out.println("getMaxThroughput called when we had " + calculator.getCount() + " samples");
+ 		return maxThroughput;
+ 	}
+
+
+ 	/**
+ 	 * @param percent
+ 	 * @return
+ 	 */
+ 	public Number getPercentPoint(double percent)
+ 	{
+ 		return calculator.getPercentPoint(percent);
+ 	}
+
+ 	/**
+ 	 * @return
+ 	 */
+ 	public int getCount()
+ 	{
+ 		return calculator.getCount();
+ 	}
+
+ 	/**
+ 	 * @return
+ 	 */
+ 	public Number getMax()
+ 	{
+ 		return calculator.getMax();
+ 	}
+
+ 	/**
+ 	 * @return
+ 	 */
+ 	public double getMean()
+ 	{
+ 		return calculator.getMean();
+ 	}
+
+ 	public Number getMeanAsNumber()
+ 	{
+ 		return new Long((long)calculator.getMean());
+ 	}
+
+ 	/**
+ 	 * @return
+ 	 */
+ 	public Number getMedian()
+ 	{
+ 		return calculator.getMedian();
+ 	}
+
+ 	/**
+ 	 * @return
+ 	 */
+ 	public Number getMin()
+ 	{
+ 		if (calculator.getMin().longValue() < 0) {
+ 			return new Long(0);
+ 		} else {
+ 			return calculator.getMin();
+ 		}
+ 	}
+
+ 	/**
+ 	 * @param percent
+ 	 * @return
+ 	 */
+ 	public Number getPercentPoint(float percent)
+ 	{
+ 		return calculator.getPercentPoint(percent);
+ 	}
+
+ 	/**
+ 	 * @return
+ 	 */
+ 	public double getStandardDeviation()
+ 	{
+ 		return calculator.getStandardDeviation();
+ 	}
+
+ 	public Number getStandardDeviationAsNumber()
+ 	{
+ 		return Long.valueOf((long)calculator.getStandardDeviation());
+ 	}
+ } // class RunningSample

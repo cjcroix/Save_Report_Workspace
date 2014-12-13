@@ -1,0 +1,41 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk/xdocs/localising
+http://svn.apache.org/repos/asf
+
+
+
+2013-03-17T21:48:24.365404Z
+1457570
+sebb
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+index.xml
+file
+
+
+
+
+2013-09-14T12:10:00.000000Z
+05f189c0810eef5e910281024312ae1b
+2013-03-17T21:48:24.365404Z
+1457570
+sebb
+has-props
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1516145/jmeter/trunk/src/core/org/apache/jmeter/testbeans
+END
+TestBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/testbeans/TestBean.java
+END
+TestBeanBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1500548/jmeter/trunk/src/core/org/apache/jmeter/testbeans/TestBeanBeanInfo.java
+END
+BeanInfoSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1515681/jmeter/trunk/src/core/org/apache/jmeter/testbeans/BeanInfoSupport.java
+END
+TestBeanHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/asf/!svn/ver/1514676/jmeter/trunk/src/core/org/apache/jmeter/testbeans/TestBeanHelper.java
+END

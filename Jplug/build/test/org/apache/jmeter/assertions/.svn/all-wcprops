@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1380341/jmeter/trunk/test/src/org/apache/jmeter/assertions
+END
+MD5HexAssertionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/assertions/MD5HexAssertionTest.java
+END
+SizeAssertionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1380341/jmeter/trunk/test/src/org/apache/jmeter/assertions/SizeAssertionTest.java
+END
+XMLSchemaAssertionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1380340/jmeter/trunk/test/src/org/apache/jmeter/assertions/XMLSchemaAssertionTest.java
+END
+XPathAssertionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/assertions/XPathAssertionTest.java
+END
+ResponseAssertionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/asf/!svn/ver/1380341/jmeter/trunk/test/src/org/apache/jmeter/assertions/ResponseAssertionTest.java
+END

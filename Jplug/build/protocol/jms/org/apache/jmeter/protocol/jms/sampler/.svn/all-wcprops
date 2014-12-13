@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1505695/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler
+END
+QueueExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1377070/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/QueueExecutor.java
+END
+PublisherSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/asf/!svn/ver/1429128/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/PublisherSampler.java
+END
+FixedQueueExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/FixedQueueExecutor.java
+END
+JMSSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/1505695/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/JMSSampler.java
+END
+Receiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/Receiver.java
+END
+MessageAdmin.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1346144/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/MessageAdmin.java
+END
+BaseJMSSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/BaseJMSSampler.java
+END
+SubscriberSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/SubscriberSampler.java
+END
+TemporaryQueueExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/sampler/TemporaryQueueExecutor.java
+END

@@ -1,0 +1,54 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/config
+http://svn.apache.org/repos/asf
+
+
+
+2012-06-23T15:26:36.471977Z
+1353144
+sebb
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+MultipartUrlConfigTest.java
+file
+
+
+
+
+2013-09-14T12:09:12.000000Z
+465002c341950a651af69021e73def1b
+2010-12-02T15:22:37.817316Z
+1041406
+sebb
+has-props
+
+UrlConfigTest.java
+file
+
+
+
+
+2013-09-14T12:09:12.000000Z
+89cfa120084af36f8f317654477b7a4e
+2012-06-23T15:26:36.471977Z
+1353144
+sebb
+has-props
+

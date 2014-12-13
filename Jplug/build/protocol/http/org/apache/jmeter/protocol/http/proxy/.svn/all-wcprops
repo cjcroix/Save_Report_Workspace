@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1521970/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy
+END
+Daemon.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/Daemon.java
+END
+ProxyControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1521679/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/ProxyControl.java
+END
+Proxy.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1521637/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/Proxy.java
+END
+ServerAliasKeyManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/1520267/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/ServerAliasKeyManager.java
+END
+HttpReplyHdr.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1518164/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/HttpReplyHdr.java
+END
+AbstractSamplerCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/asf/!svn/ver/1418340/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/AbstractSamplerCreator.java
+END
+SamplerCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1418340/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/SamplerCreator.java
+END
+HttpRequestHdr.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1518860/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/HttpRequestHdr.java
+END
+FormCharSetFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/FormCharSetFinder.java
+END
+SamplerCreatorFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/1510843/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/SamplerCreatorFactory.java
+END
+DefaultSamplerCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/1418351/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/proxy/DefaultSamplerCreator.java
+END

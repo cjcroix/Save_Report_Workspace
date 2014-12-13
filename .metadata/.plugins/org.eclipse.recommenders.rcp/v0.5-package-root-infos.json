@@ -1,0 +1,964 @@
+[
+  {
+    "symbolicName": "xml-apis-1.3.04",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "90b215f48fe42776c8c7f6e3509ec54e84fd65ef",
+    "jarFileModificationDate": "2013-09-14T05:50:52+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xml-apis-1.3.04.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.itextpdf.itext-pdfa",
+    "version": {
+      "major": 5,
+      "minor": 4,
+      "micro": 5,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4ceb63cfd99f6d13268f521bb2d92d72dd4b7733",
+    "jarFileModificationDate": "2013-12-02T14:32:40+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itext-pdfa-5.4.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.jodd.lagarto",
+    "version": {
+      "major": 3,
+      "minor": 4,
+      "micro": 4,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "bacd476570558a0b6b12d6d07c64609ca14bdaab",
+    "jarFileModificationDate": "2013-09-14T05:48:34+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\jodd-lagarto-3.4.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "ef634c0c4c3550ff0ca6576f3af159b517b5aafe",
+    "jarFileModificationDate": "2013-05-16T23:50:49+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\zipfs.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "c87a27eb79e01b9b60a51c6319d3c92da260fcbe",
+    "jarFileModificationDate": "2013-05-16T23:50:52.005+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\localedata.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.httpcomponents.httpcore",
+    "version": {
+      "major": 4,
+      "minor": 2,
+      "micro": 5,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "472f0f5f8dba5d1962cb9d7739feed739a31c30d",
+    "jarFileModificationDate": "2013-09-14T05:47:52+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\httpcore-4.2.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.itextpdf.itext-xtra",
+    "version": {
+      "major": 5,
+      "minor": 4,
+      "micro": 5,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "d3fad93cfe6082a223a6b2b868227ac96bd921d9",
+    "jarFileModificationDate": "2013-12-02T14:32:28+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itext-xtra-5.4.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "xpp3_min-1.1.4c",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "19d4e90b43059058f6e056f794f0ea4030d60b86",
+    "jarFileModificationDate": "2013-09-14T05:51:02+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xpp3_min-1.1.4c.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "commons-httpclient-3.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "964cd74171f427720480efdec40a7c7f6e58426a",
+    "jarFileModificationDate": "2013-09-14T05:47:12+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-httpclient-3.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "itext-xtra-5.4.5-javadoc",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "46b7cc2e16a991982f9cd591234ec0fb107efa62",
+    "jarFileModificationDate": "2013-12-02T14:32:28+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itext-xtra-5.4.5-javadoc.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.htmlparser.htmlparser",
+    "version": {
+      "major": 2,
+      "minor": 1,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "c752e5984b7767533cbd3fdffa48cecb52fa226c",
+    "jarFileModificationDate": "2013-09-14T05:47:42+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\htmlparser-2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "excalibur-logger-1.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "762fdb0e1edb2ff1206da20b34024bc2ef131076",
+    "jarFileModificationDate": "2013-09-14T05:47:38+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\excalibur-logger-1.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "5da320e46f1c616986563b2e788b5a0569cad088",
+    "jarFileModificationDate": "2013-05-16T23:50:48.999+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\sunjce_provider.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "avalon-framework-4.1.4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "525062967881c8414b59a7b04cee6a3f87749085",
+    "jarFileModificationDate": "2013-09-14T05:46:00+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\avalon-framework-4.1.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "excalibur-instrument-1.0",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "022be51dd87155732e36495e5f8dcfc8deaee0a2",
+    "jarFileModificationDate": "2013-09-14T05:47:38+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\excalibur-instrument-1.0.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "bcprov",
+    "version": {
+      "major": 1,
+      "minor": 49,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f5155f04330459104b79923274db5060c1057b99",
+    "jarFileModificationDate": "2013-09-14T05:46:38+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\api\\bcprov-jdk15on-1.49.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f831655c50b92c41e366442d09511ea84270c45e",
+    "jarFileModificationDate": "2013-05-16T23:50:49.020+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\jce.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.tika.core",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "30fd5d2c4c21ed908d4b74064ac7f4f4fdbe9ae7",
+    "jarFileModificationDate": "2013-09-14T05:49:12+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\tika-core-1.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "a3d1a9689f1c8e36ab64fb669df92076771c42f2",
+    "jarFileModificationDate": "2013-05-16T23:50:48.999+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\sunmscapi.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "bsf-2.4.0",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "658f324024bb473c4d15d18b855676fa817353e9",
+    "jarFileModificationDate": "2013-09-14T05:45:58+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\bsf-2.4.0.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "excalibur-datasource-1.1.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "af3679b9bf71010aa53db3eed9ea33e238014111",
+    "jarFileModificationDate": "2013-09-14T05:47:36+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\excalibur-datasource-1.1.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "javax.mail",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 4,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b907ef0a02ff6e809392b1e7149198497fcc8e49",
+    "jarFileModificationDate": "2013-09-14T05:48:02+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\mail-1.4.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.commons.lang3",
+    "version": {
+      "major": 3,
+      "minor": 1,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "905075e6c80f206bbe6cf1e809d2caa69f420c76",
+    "jarFileModificationDate": "2013-09-14T05:47:28+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-lang3-3.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jtidy-r938",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "ab08d87a225a715a69107732b67f21e1da930349",
+    "jarFileModificationDate": "2013-09-14T05:49:04+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\jtidy-r938.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jdom-1.1.3",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "8bdfeb39fa929c35f5e4f0b02d34350db39a1efc",
+    "jarFileModificationDate": "2013-09-14T05:48:10+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\jdom-1.1.3.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.thoughtworks.xstream.xstream",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 4,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "488e9e4a47afc81d2b2dec3c3eb3a4d0f10fe105",
+    "jarFileModificationDate": "2013-09-14T05:51:08+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xstream-1.4.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "ba1c9658b920bc9815a31913d5d6ae3917428739",
+    "jarFileModificationDate": "2013-05-16T23:50:49.058+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\resources.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "bcpkix",
+    "version": {
+      "major": 1,
+      "minor": 49,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "924cc7ad2f589630c97b918f044296ebf1bb6855",
+    "jarFileModificationDate": "2013-09-14T05:46:48+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\api\\bcpkix-jdk15on-1.49.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "logkit-2.0",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "5ff38a5afa218f4a42b46b1a4aa44ca7516867b8",
+    "jarFileModificationDate": "2013-09-14T05:48:46+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\logkit-2.0.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "serializer-2.7.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4b4b18df434451249bb65a63f2fb69e215a6a020",
+    "jarFileModificationDate": "2013-09-14T05:48:56+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\serializer-2.7.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "itextpdf-5.4.5-javadoc",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "61128aa35594fb326fa3150aeb3d58e9b04af682",
+    "jarFileModificationDate": "2013-12-02T14:32:16+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itextpdf-5.4.5-javadoc.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.commons.codec",
+    "version": {
+      "major": 1,
+      "minor": 8,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "af3be3f74d25fc5163b54f56a0d394b462dafafd",
+    "jarFileModificationDate": "2013-09-14T05:46:58+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-codec-1.8.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "32b135e1fa8fb49ca5039e019214538e0d1725a5",
+    "jarFileModificationDate": "2013-05-16T23:50:51.980+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\jsse.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "xercesImpl-2.9.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "7bc7e49ddfe4fb5f193ed37ecc96c12292c8ceb6",
+    "jarFileModificationDate": "2013-09-14T05:50:46+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xercesImpl-2.9.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "bsh-2.0b5",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "fdc2ab6ae8b53e0d4761b296c116df747cd85199",
+    "jarFileModificationDate": "2013-09-14T05:46:54+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\bsh-2.0b5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "6d88fb58238f3dcfeb71ac071cf85a104d16f509",
+    "jarFileModificationDate": "2013-05-16T23:50:48.992+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\access-bridge-64.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "71558da5840d2c102a37a0083aedafe6e37e863a",
+    "jarFileModificationDate": "2013-05-16T23:50:48.992+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\dnsns.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.commons.logging",
+    "version": {
+      "major": 1,
+      "minor": 1,
+      "micro": 3,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f",
+    "jarFileModificationDate": "2013-09-14T05:47:30+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-logging-1.1.3.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "xalan-2.7.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "75f1d83ce27bab5f29fff034fc74aa9f7266f22a",
+    "jarFileModificationDate": "2013-09-14T05:50:26+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xalan-2.7.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4838808e80df811cfb2bf7faf361b3cbc16f9f81",
+    "jarFileModificationDate": "2011-08-30T23:05:02+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\dns_sd.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.geronimo.specs.geronimo-jms_1.1_spec",
+    "version": {
+      "major": 1,
+      "minor": 1,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "c872b46c601d8dc03633288b81269f9e42762cea",
+    "jarFileModificationDate": "2013-09-14T05:48:10+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\geronimo-jms_1.1_spec-1.1.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "xmlpull-1.1.3.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "2b8e230d2ab644e4ecaa94db7cdedbc40c805dfa",
+    "jarFileModificationDate": "2013-09-14T05:51:02+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xmlpull-1.1.3.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.commons.jexl",
+    "version": {
+      "major": 2,
+      "minor": 1,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "6ecc181debade00230aa1e17666c4ea0371beaaa",
+    "jarFileModificationDate": "2013-09-14T05:47:24+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-jexl-2.1.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "commons-jexl-1.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "95fac6451b0bed67b79c7b1a0b72603a07912f48",
+    "jarFileModificationDate": "2013-09-14T05:47:18+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-jexl-1.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "itext-xtra-5.4.5-sources",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "17e53d8142c9950d94a6e54bf7b9a8f56a6cdd81",
+    "jarFileModificationDate": "2013-12-02T14:32:28+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itext-xtra-5.4.5-sources.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "slf4j.api",
+    "version": {
+      "major": 1,
+      "minor": 7,
+      "micro": 5,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "6b262da268f8ad9eff941b25503a9198f0a0ac93",
+    "jarFileModificationDate": "2013-09-14T05:49:00+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\slf4j-api-1.7.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "318535c12e8ed9df6d2139664f51c5dd841cf10f",
+    "jarFileModificationDate": "2013-05-16T23:50:49.021+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\jfr.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "rsyntaxtextarea-2.0.7",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "d8b2eeb935276cd9de4f6ff3511d372242db0e8f",
+    "jarFileModificationDate": "2013-04-24T21:53:12+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\rsyntaxtextarea-2.0.7.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.httpcomponents.httpmime",
+    "version": {
+      "major": 4,
+      "minor": 2,
+      "micro": 6,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "270386011895bc6c7ee6496fd87511d6a98093c1",
+    "jarFileModificationDate": "2013-09-14T05:47:52+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\httpmime-4.2.6.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.itextpdf",
+    "version": {
+      "major": 5,
+      "minor": 4,
+      "micro": 5,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "8fe28bb8246ecf9c1740d813bd9e3de79e6e68d9",
+    "jarFileModificationDate": "2013-12-02T14:32:16+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itextpdf-5.4.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "itext-pdfa-5.4.5-sources",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "d314e2d3bb40eecf8c5c27be90bb69367c595639",
+    "jarFileModificationDate": "2013-12-02T14:32:40+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itext-pdfa-5.4.5-sources.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.commons.collections",
+    "version": {
+      "major": 3,
+      "minor": 2,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "761ea405b9b37ced573d2df0d1e3a4e0f9edc668",
+    "jarFileModificationDate": "2013-09-14T05:47:08+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-collections-3.2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "itext-pdfa-5.4.5-javadoc",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e65079267de6fff7457de50901b2393a12c7ca8b",
+    "jarFileModificationDate": "2013-12-02T14:32:40+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itext-pdfa-5.4.5-javadoc.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.htmlparser.htmllexer",
+    "version": {
+      "major": 2,
+      "minor": 1,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "2ebf2c073e649b7e674cddd0558ff102a486402f",
+    "jarFileModificationDate": "2013-09-14T05:47:40+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\htmllexer-2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.tika.parsers",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "58aba11789dc508f004e3352948394c9e395fb50",
+    "jarFileModificationDate": "2013-09-14T05:49:20+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\tika-parsers-1.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.httpcomponents.httpclient",
+    "version": {
+      "major": 4,
+      "minor": 2,
+      "micro": 6,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e4ca30a6a3a075053a61c6fc850d2432dc012ba7",
+    "jarFileModificationDate": "2013-09-14T05:47:48+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\httpclient-4.2.6.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.jodd.core",
+    "version": {
+      "major": 3,
+      "minor": 4,
+      "micro": 4,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "eb772e457982de6b428938b6b439725b47b3674c",
+    "jarFileModificationDate": "2013-09-14T05:48:32+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\jodd-core-3.4.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.mongodb.mongo-java-driver",
+    "version": {
+      "major": 2,
+      "minor": 11,
+      "micro": 2,
+      "qualifier": "RELEASE"
+    },
+    "jarFileFingerprint": "ddbd86f711ff2b11ab97971e8a87be3d734db9de",
+    "jarFileModificationDate": "2013-09-14T05:48:52+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\mongo-java-driver-2.11.2.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.jsoup",
+    "version": {
+      "major": 1,
+      "minor": 7,
+      "micro": 2,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "d7e275ba05aa380ca254f72d0c0ffebaedc3adcf",
+    "jarFileModificationDate": "2013-09-14T05:48:38+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\jsoup-1.7.2.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "itextpdf-5.4.5-sources",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "5e66c0c672bfba9af4520e032d6eb46d8751c14e",
+    "jarFileModificationDate": "2013-12-02T14:32:16+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\itextpdf-5.4.5-sources.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "c4c7923b11e98bc8d1d32bfd2ff6363d212ead80",
+    "jarFileModificationDate": "2013-05-16T23:50:48.998+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\sunec.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "oro-2.0.8",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "5592374f834645c4ae250f4c9fbb314c9369d698",
+    "jarFileModificationDate": "2013-09-14T05:47:54+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\oro-2.0.8.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "org.apache.commons.net",
+    "version": {
+      "major": 3,
+      "minor": 3,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "cd0d5510908225f76c5fe5a3f1df4fa44866f81e",
+    "jarFileModificationDate": "2013-09-14T05:47:34+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-net-3.3.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "abd730a724364204bff29f4e0b3ced4d08f09a47",
+    "jarFileModificationDate": "2013-05-16T23:50:51.795+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\charsets.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jcharts-0.7.5",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "496f4515d4eae91a43bde1bc7a965fba500acbbc",
+    "jarFileModificationDate": "2013-09-14T05:48:08+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\jcharts-0.7.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "junit-4.11",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4e031bb61df09069aeb2bffb4019e7a5034a4ee0",
+    "jarFileModificationDate": "2013-09-14T05:48:42+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\junit-4.11.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "rhino-1.7R4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e982f2136574b9a423186fbaeaaa98dc3e5a5288",
+    "jarFileModificationDate": "2013-09-14T05:48:26+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\rhino-1.7R4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "xmlgraphics-commons-1.5",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "7fb5c2b2c18f0e87fbe9bded16429a5d7cc2dc2b",
+    "jarFileModificationDate": "2013-09-14T05:51:00+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\xmlgraphics-commons-1.5.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "a0b7abe9a4133d6a18d370d9869d0077957d8bc7",
+    "jarFileModificationDate": "2013-05-16T23:50:48.994+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\ext\\jaccess.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.commons.io",
+    "version": {
+      "major": 2,
+      "minor": 4,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b1b6ea3b7e4aa4f492509a4952029cd8e48019ad",
+    "jarFileModificationDate": "2013-09-14T05:47:16+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\commons-io-2.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "excalibur-pool-1.2",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "8b01af6c7078d4edd7de8292bc5136a2c36dff2b",
+    "jarFileModificationDate": "2013-09-14T05:47:40+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\excalibur-pool-1.2.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "bcmail",
+    "version": {
+      "major": 1,
+      "minor": 49,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "8ceed2b959b780fd46aa32453279fea0ce330ca2",
+    "jarFileModificationDate": "2013-09-14T05:46:02+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\api\\bcmail-jdk15on-1.49.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "1fbfeeb3449860cd85925cef06714daa4c8220ca",
+    "jarFileModificationDate": "2013-05-16T23:50:51.736+05:30",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "soap-2.3.1",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b1c8d536eead15574d6324b30c450176f70b830d",
+    "jarFileModificationDate": "2013-09-14T05:49:02+05:30",
+    "location": "F:\\project\\ECLIPSE_WORKSPACE(restorept)\\Jplug\\lib\\soap-2.3.1.jar",
+    "javaRuntime": false
+  }
+]

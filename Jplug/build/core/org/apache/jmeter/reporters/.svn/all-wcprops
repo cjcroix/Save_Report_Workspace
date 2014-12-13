@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1520974/jmeter/trunk/src/core/org/apache/jmeter/reporters
+END
+ResultSaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/asf/!svn/ver/1484366/jmeter/trunk/src/core/org/apache/jmeter/reporters/ResultSaver.java
+END
+ResultCollector.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1520974/jmeter/trunk/src/core/org/apache/jmeter/reporters/ResultCollector.java
+END
+ResultCollectorHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/reporters/ResultCollectorHelper.java
+END
+AbstractListenerElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/reporters/AbstractListenerElement.java
+END
+FileReporter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/core/org/apache/jmeter/reporters/FileReporter.java
+END
+ResultAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1413358/jmeter/trunk/src/core/org/apache/jmeter/reporters/ResultAction.java
+END
+Summariser.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1505695/jmeter/trunk/src/core/org/apache/jmeter/reporters/Summariser.java
+END

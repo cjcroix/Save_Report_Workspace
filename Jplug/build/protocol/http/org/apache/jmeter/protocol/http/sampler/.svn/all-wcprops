@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1518179/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler
+END
+AccessLogSamplerResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/asf/!svn/ver/1510997/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerResources.properties
+END
+PutWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/asf/!svn/ver/1353149/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/PutWriter.java
+END
+HTTPHCAbstractImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1489189/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPHCAbstractImpl.java
+END
+HTTPAbstractImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1513863/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPAbstractImpl.java
+END
+HTTPSamplerBaseConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSamplerBaseConverter.java
+END
+AjpSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1424450/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AjpSampler.java
+END
+HTTPSamplerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1410999/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSamplerFactory.java
+END
+AccessLogSamplerResources_tr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerResources_tr.properties
+END
+HTTPJavaImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPJavaImpl.java
+END
+HTTPHC3Impl.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1518179/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPHC3Impl.java
+END
+HTTPSampleResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1515606/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSampleResult.java
+END
+WebServiceSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/asf/!svn/ver/1398083/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/WebServiceSampler.java
+END
+AccessLogSamplerBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/asf/!svn/ver/1380865/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerBeanInfo.java
+END
+AccessLogSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSampler.java
+END
+HTTPSamplerProxy.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1505471/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSamplerProxy.java
+END
+HTTPSamplerBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1515608/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSamplerBase.java
+END
+SoapSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1498110/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/SoapSampler.java
+END
+AccessLogSamplerResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerResources_fr.properties
+END
+HTTPHC4Impl.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1518179/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPHC4Impl.java
+END
+HTTPSampler2.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1505471/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSampler2.java
+END
+HTTPSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSampler.java
+END
+PostWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1380859/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/PostWriter.java
+END
+AccessLogSamplerResources_es.properties
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerResources_es.properties
+END
+HTTPSamplerBaseBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/asf/!svn/ver/1500549/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPSamplerBaseBeanInfo.java
+END
+AccessLogSamplerResources_zh_TW.properties
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerResources_zh_TW.properties
+END
+AccessLogSamplerResources_pt_BR.properties
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/AccessLogSamplerResources_pt_BR.properties
+END
+HttpClientDefaultParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/asf/!svn/ver/1380863/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HttpClientDefaultParameters.java
+END
+HTTPFileImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/sampler/HTTPFileImpl.java
+END

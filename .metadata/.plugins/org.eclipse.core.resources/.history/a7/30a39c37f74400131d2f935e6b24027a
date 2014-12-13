@@ -1,0 +1,257 @@
+package org.apache.jmeter.visualizers;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
+import java.util.Arrays;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.JFileChooser;
+
+import org.apache.jmeter.gui.util.PowerTableModel;
+import org.apache.jmeter.testelement.TestElement;
+import org.apache.jmeter.testelement.property.JMeterProperty;
+import org.apache.jmeter.testelement.property.PropertyIterator;
+import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.visualizers.gui.AbstractListenerGui;
+import org.apache.jorphan.collections.Data;
+
+// 1
+public class CreateReport extends AbstractListenerGui implements Serializable,ActionListener{
+
+private static final long serialVersionUID = 240L;
+
+public JTextField basepath;
+
+private JButton browse = new JButton("Browse");
+
+
+
+
+
+JMeterProperty BasePath=null;
+
+static JMeterProperty JPropertyName=null;
+
+private static final String BRO = "bro";
+
+TestElement intermediateErrorListenerTestElement;
+
+JTextField JPropertyNameField;
+
+private JTable table;
+
+//private PowerTableModel tableModel;
+
+//private JButton add;
+
+// private JButton delete;
+
+
+
+
+private static final String SELECTALL = "SELECTALL";
+
+private static final String ADD = "add";
+
+private static final String DELETE = "delete";
+
+private String COLUMN_NAMES_0 = "Properties";
+
+static String[]propertyHeaderArray=new String[1000];
+
+private DefaultTableModel tableModel = new DefaultTableModel();
+
+public CreateReport() {
+super();
+init();
+}
+
+public CreateReport(boolean displayName) {
+init();
+}
+
+public String getLabelResource() {
+return this.getClass().getSimpleName(); //$NON-NLS-1$
+}
+
+@Override
+public String getStaticLabel() {
+return "New Listener";
+}
+
+@Override
+public void configure(TestElement el) {
+	
+}
+//checkDeleteStatus();
+
+
+
+public TestElement createTestElement() {
+	
+ErrorListener errorMon = new ErrorListener();
+modifyTestElement(errorMon);
+return errorMon;
+
+}
+
+public void modifyTestElement(TestElement errorListener) {
+if(ErrorListener.updateAllowed==true)
+{
+if (table.isEditing()) {
+table.getCellEditor().stopCellEditing();
+}
+
+
+
+int counter=0;
+
+
+
+super.configureTestElement(errorListener);
+
+errorListener.setProperty("FileBasePath",basepath.getText().trim());
+BasePath=errorListener.getProperty("FileBasePath");
+ErrorListener.BASEPATH=BasePath.toString();
+
+
+}
+}
+
+@Override
+public void clearGui() {
+if(ErrorListener.updateAllowed==true)
+{
+super.clearGui();
+//initTableModel();
+//table.setModel(tableModel);
+basepath.setText("");
+Arrays.fill(propertyHeaderArray, null);
+
+}
+}
+
+private void init() {
+setLayout(new BorderLayout());
+setBorder(makeBorder());
+Box box = Box.createVerticalBox();	
+box.add(makeTitlePanel());
+box.add(createBasePathPanel());
+add(createTablePanel(), BorderLayout.CENTER);
+add(Box.createVerticalStrut(70), BorderLayout.EAST);
+//add(createButtonPanel(),BorderLayout.WEST);
+add(box, BorderLayout.NORTH);
+}
+
+public void browse_loc()
+{
+	JFileChooser j = new JFileChooser();
+	j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+	//Integer opt = j.showOpenDialog(this);
+	}
+
+public void actionPerformed(ActionEvent e) {
+String action = e.getActionCommand();
+JFileChooser j = new JFileChooser();
+j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+if (action.equals(BRO)) {
+    int returnVal = j.showOpenDialog(this);
+    j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+    	basepath.setText(j.getSelectedFile().getAbsolutePath());
+    }}
+}
+
+private Component createTablePanel() {
+
+	table = new JTable(tableModel);
+table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+tableModel.addColumn("Label");
+tableModel.addColumn("#Samples");
+tableModel.addColumn("Average");
+tableModel.addColumn("Min");
+tableModel.addColumn("Max");
+tableModel.addColumn("Std. Dev.");
+tableModel.addColumn("Error%");
+tableModel.addColumn("Throughput");
+tableModel.addColumn("KB/sec");
+tableModel.addColumn("Avg.Bytes");
+return makeScrollPane(table);
+}
+
+protected void initTableModel() {
+
+	
+	
+}
+
+
+String listed23[] = {"Sample #","Start Time","Thread Name","Label","Sample Time(ms)","Status","Bytes","Latency"};
+JComboBox<String> comboBox = new JComboBox<String>(listed23);
+
+
+int row=0;
+
+protected void addArgument() {
+	
+}
+
+protected void stopTableEditing() {
+if (table.isEditing()) {
+TableCellEditor cellEditor = table.getCellEditor(table.getEditingRow(), table.getEditingColumn());
+cellEditor.stopCellEditing();
+}
+}
+
+protected void deleteArgument() {
+	return;
+}
+public void netw()
+{
+	browse.setActionCommand(BRO);
+	browse.addActionListener(this);
+	browse.setEnabled(true);
+	}
+public JPanel createBasePathPanel()
+{
+JLabel label = new JLabel("Base Directory:");
+
+basepath = new JTextField(10);
+basepath.setName(ErrorListener.BASEPATH);
+label.setLabelFor(basepath);
+browse.setActionCommand("bro");
+JPanel basepathPanel = new JPanel(new BorderLayout(72, 0));
+basepathPanel.add(label, BorderLayout.WEST);
+basepathPanel.add(basepath, BorderLayout.CENTER);
+basepathPanel.add(browse,BorderLayout.EAST);
+netw();
+//JPanel optionPanel = new JPanel();
+
+return basepathPanel;
+}
+
+protected void checkDeleteStatus() {
+}
+protected boolean checkAddStatus() {
+
+return true;
+
+}
+
+
+protected void checkRowCountStatus() {
+	
+}
+
+public void clearData() {
+}
+
+}

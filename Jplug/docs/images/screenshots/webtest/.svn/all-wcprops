@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1514022/jmeter/trunk/docs/images/screenshots/webtest
+END
+http-request2.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1514022/jmeter/trunk/docs/images/screenshots/webtest/http-request2.png
+END
+threadgroup2.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1505349/jmeter/trunk/docs/images/screenshots/webtest/threadgroup2.png
+END
+http-defaults2.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1340241/jmeter/trunk/docs/images/screenshots/webtest/http-defaults2.png
+END
+http-request1.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1514022/jmeter/trunk/docs/images/screenshots/webtest/http-request1.png
+END
+http-defaults1.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1340241/jmeter/trunk/docs/images/screenshots/webtest/http-defaults1.png
+END
+http_login.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1514022/jmeter/trunk/docs/images/screenshots/webtest/http_login.png
+END
+threadgroup.png
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1505349/jmeter/trunk/docs/images/screenshots/webtest/threadgroup.png
+END

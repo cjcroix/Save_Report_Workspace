@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/ldap/org/apache/jmeter/protocol/ldap/config/gui
+END
+LDAPArgument.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/ldap/org/apache/jmeter/protocol/ldap/config/gui/LDAPArgument.java
+END
+LDAPArguments.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/ldap/org/apache/jmeter/protocol/ldap/config/gui/LDAPArguments.java
+END
+LdapConfigGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/ldap/org/apache/jmeter/protocol/ldap/config/gui/LdapConfigGui.java
+END
+LDAPArgumentsPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/ldap/org/apache/jmeter/protocol/ldap/config/gui/LDAPArgumentsPanel.java
+END
+LdapExtConfigGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/ldap/org/apache/jmeter/protocol/ldap/config/gui/LdapExtConfigGui.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1413953/jmeter/trunk/test/src/org/apache/jmeter/samplers
+END
+TestSampleResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1215361/jmeter/trunk/test/src/org/apache/jmeter/samplers/TestSampleResult.java
+END
+TestSampleSaveConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/samplers/TestSampleSaveConfiguration.java
+END
+NullSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1413953/jmeter/trunk/test/src/org/apache/jmeter/samplers/NullSampler.java
+END

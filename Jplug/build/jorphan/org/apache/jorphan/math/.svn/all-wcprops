@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1413254/jmeter/trunk/src/jorphan/org/apache/jorphan/math
+END
+NumberComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1413254/jmeter/trunk/src/jorphan/org/apache/jorphan/math/NumberComparator.java
+END
+StatCalculatorLong.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1221486/jmeter/trunk/src/jorphan/org/apache/jorphan/math/StatCalculatorLong.java
+END
+StatCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1380363/jmeter/trunk/src/jorphan/org/apache/jorphan/math/StatCalculator.java
+END
+StatCalculatorInteger.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1221486/jmeter/trunk/src/jorphan/org/apache/jorphan/math/StatCalculatorInteger.java
+END

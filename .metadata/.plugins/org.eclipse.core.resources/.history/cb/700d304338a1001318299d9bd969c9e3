@@ -1,0 +1,1126 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+
+package org.apache.jmeter.visualizers;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+//import javax.swing.table.AbstractTableModel;
+//import javax.swing.table.TableModel;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import junit.runner.TestRunListener;
+
+import org.apache.jmeter.gui.CommentPanel;
+import org.apache.jmeter.gui.util.FileDialoger;
+import org.apache.jmeter.gui.util.HeaderAsPropertyRenderer;
+import org.apache.jmeter.gui.util.VerticalPanel;
+import org.apache.jmeter.samplers.Clearable;
+import org.apache.jmeter.samplers.SampleResult;
+import org.apache.jmeter.save.CSVSaveService;
+import org.apache.jmeter.testelement.TestElement;
+import org.apache.jmeter.testelement.TestListener;
+import org.apache.jmeter.testelement.TestStateListener;
+import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.visualizers.gui.AbstractVisualizer;
+import org.apache.jorphan.gui.NumberRenderer;
+import org.apache.jorphan.gui.ObjectTableModel;
+import org.apache.jorphan.gui.RateRenderer;
+import org.apache.jorphan.gui.RendererUtils;
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.jorphan.reflect.Functor;
+import org.apache.jorphan.util.JOrphanUtils;
+import org.apache.log.Logger;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer3D;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import au.com.bytecode.opencsv.CSVReader;
+
+import com.csvreader.CsvReader;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
+/**
+ * Aggregrate Table-Based Reporting Visualizer for JMeter. Props to the people
+ * who've done the other visualizers ahead of me (Stefano Mazzocchi), who I
+ * borrowed code from to start me off (and much code may still exist). Thank
+ * you!
+ *
+ */
+public class SaveReport extends AbstractVisualizer implements Serializable,Clearable, ActionListener,TestStateListener{
+
+    private static final long serialVersionUID = 240L;
+
+    private static final Logger log = LoggingManager.getLoggerForClass();
+
+    private static final String USE_GROUP_NAME = "useGroupName"; //$NON-NLS-1$
+
+    private static final String SAVE_HEADERS   = "saveHeaders"; //$NON-NLS-1$
+
+    private static final String[] COLUMNS = { 
+            "sampler_label",                 //$NON-NLS-1$
+            "aggregate_report_count",        //$NON-NLS-1$
+            "average",                       //$NON-NLS-1$
+            "aggregate_report_median",       //$NON-NLS-1$
+            "aggregate_report_90%_line",     //$NON-NLS-1$
+            "aggregate_report_min",          //$NON-NLS-1$
+            "aggregate_report_max",          //$NON-NLS-1$
+            "aggregate_report_error%",       //$NON-NLS-1$
+            "aggregate_report_rate",         //$NON-NLS-1$
+            "aggregate_report_bandwidth" };  //$NON-NLS-1$
+
+    private final String TOTAL_ROW_LABEL
+        = JMeterUtils.getResString("aggregate_report_total_label");  //$NON-NLS-1$
+
+    private JTable myJTable;
+
+    private JScrollPane myScrollPane;
+
+    private final JButton saveTable =
+        new JButton(JMeterUtils.getResString("aggregate_graph_save_table"));            //$NON-NLS-1$
+
+    private final JCheckBox saveHeaders = // should header be saved with the data?
+        new JCheckBox(JMeterUtils.getResString("aggregate_graph_save_table_header"),true);    //$NON-NLS-1$
+
+    private final JCheckBox useGroupName =
+        new JCheckBox(JMeterUtils.getResString("aggregate_graph_use_group_name"));            //$NON-NLS-1$
+    JFrame frame = new JFrame();
+    private transient ObjectTableModel model;
+
+    /**
+     * Lock used to protect tableRows update + model update
+     */
+    private final transient Object lock = new Object();
+
+    private final Map<String, SamplingStatCalculator> tableRows =
+        new ConcurrentHashMap<String, SamplingStatCalculator>();
+   JButton btn = new JButton("Open the other JFrame!");
+//starts
+    private static Boolean testRunning= false;
+           //$NON-NLS-1$
+
+    private final String BROWSE = "browse";
+    private final String VIEWTESTHISTORY = "viewTestHistory";
+    private final String COMPARETESTREPORTS = "compareTestReports";
+    private final String EXTRACTTOPDF = "extractToPdf";
+    private final JButton browse = new JButton("Browse");
+    private JLabel selectDir = new JLabel("Select directory to store Reports");
+    private final JButton viewTestHistory = new JButton("View Test History");                        
+    private final JButton compareTestReports = new JButton("Compare Test Summary Reports");
+    private final JButton extractToPdf = new JButton("Extract CSV Results to PDF");           
+    private final JTextField basepath = new JTextField();
+    private String BASEPATH = new String();
+    private String summaryCsvFile = new String();
+    private String errorCsvFile = new String();
+    String [] imgFiles = {"average.jpg","sampleCount.jpg","errorPercent.jpg","throughput.jpg","ninetyPercentLine.jpg"};
+  
+    private String reportPdfFile = new String();
+    
+    //decl for pdf
+    private  Font headerFont = new Font(Font.FontFamily.COURIER, 12,
+    	      Font.BOLD);
+    private java.awt.Font  glabel = new java.awt.Font("SansSerif", Font.NORMAL, 9);
+    	  private  Font rowFont = new Font(Font.FontFamily.COURIER, 11,
+    	      Font.NORMAL); 
+    	  static BaseColor clr= new BaseColor(0, 44, 94);
+    	  private static Font subFont = new Font(Font.FontFamily.HELVETICA, 16,
+    	      Font.BOLD,clr);
+    	 
+    	  private static Font small = new Font(Font.FontFamily.COURIER, 12);
+    //ends
+    
+    JCheckBox saveAsCsv = new JCheckBox("Save Summary as CSV");
+    JCheckBox saveAsPdf = new JCheckBox("Save Summary as PDF");
+    
+    //decl for saving the errors messsages
+     protected DefaultTableModel model2 = new DefaultTableModel();
+     protected DefaultTableModel model3 = new DefaultTableModel();
+     protected DefaultTableModel model4 = new DefaultTableModel();
+     private int errorNo;
+     private int numSamples;
+    //
+    
+
+    CommentPanel commentPanel = new CommentPanel();
+    //ends
+    
+    public SaveReport() {
+        super();
+       
+        initialize();
+        createErrorTable();
+        clearData();
+        init();
+    }
+    
+    public void initialize()
+    {
+    	 model = new ObjectTableModel(COLUMNS,
+                 SamplingStatCalculator.class,
+                 new Functor[] {
+                     new Functor("getLabel"),   //$NON-NLS-1$
+                     new Functor("getCount"),  //$NON-NLS-1$
+                     new Functor("getMeanAsNumber"),   //$NON-NLS-1$
+                     new Functor("getMedian"),  //$NON-NLS-1$
+                     new Functor("getPercentPoint",  //$NON-NLS-1$
+                             new Object[] { new Float(.900) }),
+                     new Functor("getMin"),  //$NON-NLS-1$
+                     new Functor("getMax"),   //$NON-NLS-1$
+                     new Functor("getErrorPercentage"),   //$NON-NLS-1$
+                     new Functor("getRate"),  //$NON-NLS-1$
+                     new Functor("getKBPerSecond")   //$NON-NLS-1$
+                 },
+                 new Functor[] { null, null, null, null, null, null, null, null, null, null },
+                 new Class[] { String.class, Long.class, Long.class, Long.class, Long.class,
+                               Long.class, Long.class, String.class, String.class, String.class });
+    	basepath.setText(JMeterUtils.getJMeterBinDir());
+       
+        for(int i=0;i<10;i++)
+        model4.addColumn(COLUMNS[i]);
+        BASEPATH=basepath.getText().trim();
+        BASEPATH=BASEPATH+"\\"+this.getName()+"_"+GetTimeStampInHMS();
+		try {
+			File createDir = new File(BASEPATH);
+	
+			createDir.mkdirs();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        reportPdfFile=BASEPATH+"\\"+"TestReport"+"_"+GetTimeStampInHMS() +".pdf";
+    	
+    }
+    public static   void teststarted()
+    {
+    	JOptionPane.showMessageDialog(null, "test started","test started", JOptionPane.OK_OPTION);
+    
+       
+    }
+    public static void teststopped()
+    {
+    	testRunning = false;
+    	
+    }
+    
+    private  String GetTimeStampInHMS() {
+
+    	long epoch = System.currentTimeMillis()/1000;
+    	String date = new java.text.SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new java.util.Date (epoch*1000));
+    	return date;
+
+    	}
+
+    // Column renderers
+    private static final TableCellRenderer[] RENDERERS =
+        new TableCellRenderer[]{
+            null, // Label
+            null, // count
+            null, // Mean
+            null, // median
+            null, // 90%
+            null, // Min
+            null, // Max
+            new NumberRenderer("#0.00%"), // Error %age //$NON-NLS-1$
+            new RateRenderer("#.0"),      // Throughput //$NON-NLS-1$
+            new NumberRenderer("#.0"),    // pageSize   //$NON-NLS-1$
+        };
+
+    /** @deprecated - only for use in testing */
+    @Deprecated
+    public static boolean testFunctors(){
+        SaveReport instance = new SaveReport();
+        return instance.model.checkFunctors(null,instance.getClass());
+    }
+
+    @Override
+    public String getLabelResource() {
+        return "aggregate_report";  //$NON-NLS-1$
+    }
+    public String getStaticLabel() {
+      	 return "Save Report";
+      	 }
+    @Override
+    public void add(final SampleResult res) {
+    	if(testRunning==false)
+    	{
+    		
+    		numSamples=1;
+    		errorNo=0;
+    		BASEPATH=BASEPATH+"\\"+this.getName()+"_"+GetTimeStampInHMS();
+    		try {
+				File createDir = new File(BASEPATH);
+  	
+				createDir.mkdirs();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		 summaryCsvFile=BASEPATH+"\\"+"Summary_Report"+"_"+GetTimeStampInHMS() +".csv";
+    		 errorCsvFile=BASEPATH+"\\"+"Error_Report"+"_"+GetTimeStampInHMS() +".csv";
+    		 reportPdfFile=BASEPATH+"\\"+"TestReport"+"_"+GetTimeStampInHMS() +".pdf";
+    		 JOptionPane.showMessageDialog(null, summaryCsvFile,"test started", JOptionPane.OK_OPTION);
+    	    
+    		testRunning = true;
+    	}
+    	
+    	JMeterUtils.runSafe(new Runnable() {
+            @Override
+            public void run() {
+                SamplingStatCalculator row = null;
+                final String sampleLabel = res.getSampleLabel(useGroupName.isSelected());
+                synchronized (lock) {
+                    row = tableRows.get(sampleLabel);
+                    if (row == null) {
+                        row = new SamplingStatCalculator(sampleLabel);
+                        tableRows.put(row.getLabel(), row);
+                        model.insertRow(row, model.getRowCount() - 1);
+                    }
+                    if(!res.isSuccessful())
+                    {             synchronized(lock){
+                    		addErrorToTable(res);
+                    }
+                    }
+                }
+                    saveTable();
+                /*
+                 * Synch is needed because multiple threads can update the counts.
+                 */
+                synchronized(row) {
+                    row.addSample(res);
+                }
+                SamplingStatCalculator tot = tableRows.get(TOTAL_ROW_LABEL);
+                synchronized(tot) {
+                    tot.addSample(res);
+                }
+                model.fireTableDataChanged();                
+            }
+        });
+    }
+
+    /**
+     * Clears this visualizer and its model, and forces a repaint of the table.
+     */
+    @Override
+    public void clearData() {
+        synchronized (lock) {
+            model.clearData();
+            tableRows.clear();
+            tableRows.put(TOTAL_ROW_LABEL, new SamplingStatCalculator(TOTAL_ROW_LABEL));
+            model.addRow(tableRows.get(TOTAL_ROW_LABEL));
+        }
+    }
+
+    /**
+     * Main visualizer setup.
+     */
+    private void init() {
+    	this.setLayout(new BorderLayout());
+
+        // MAIN PANEL
+        JPanel mainPanel = new JPanel();
+      
+        Border margin = new EmptyBorder(10, 10, 5, 10);
+
+        mainPanel.setBorder(margin);
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        
+        mainPanel.add(makeTitlePanel());
+        mainPanel.add(createSavePanel());
+        myJTable = new JTable(model);
+        myJTable.getTableHeader().setDefaultRenderer(new HeaderAsPropertyRenderer());
+        myJTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        RendererUtils.applyRenderers(myJTable, RENDERERS);
+        myScrollPane = new JScrollPane(myJTable);
+        this.add(mainPanel, BorderLayout.NORTH);
+        this.add(myScrollPane, BorderLayout.CENTER);
+        saveTable.addActionListener(this);
+        JPanel opts = new JPanel();
+        opts.add(useGroupName, BorderLayout.WEST);
+        opts.add(saveTable, BorderLayout.CENTER);
+        opts.add(saveHeaders, BorderLayout.EAST);
+        this.add(opts,BorderLayout.SOUTH);
+    }
+    
+    public void createErrorTable()
+    {
+    	model2.addColumn("Error #");    	
+    	model2.addColumn("Label");
+    	model2.addColumn("# Samples");
+    	model2.addColumn("Error Response Message");
+    
+    }
+    
+    
+    public  synchronized void addErrorToTable(SampleResult res)
+    {
+    	Vector e =new Vector (4); 
+    	//JOptionPane.showMessageDialog(null, Integer.toString(errorExists(res.getSampleLabel(),res.getResponseMessage())) +res.getResponseMessage(),"test started", JOptionPane.OK_OPTION);
+    	if(errorExists(res.getSampleLabel(),res.getResponseMessage())==-1)
+    	{
+    		//String [] row ={Integer.toString(errorNo+1),Integer.toString(numSamples),res.getSampleLabel(),res.getResponseMessage().toString()};
+    		e.add(errorNo+1);
+    		e.add(res.getSampleLabel());
+    		e.add(1);    		
+    		e.add(res.getResponseMessage());
+    		
+    	//	JOptionPane.showMessageDialog(null, e.toString(),"test started", JOptionPane.OK_OPTION);
+        	
+    		model2.addRow(e);
+    	    ++errorNo;
+    	}
+    	else
+    	{
+    		int x=errorExists(res.getSampleLabel(),res.getResponseMessage());  
+    	
+    		model2.setValueAt(1+(int)model2.getValueAt(x,2),x, 2);
+    		
+    	}
+             	
+    }
+    public synchronized int errorExists( String label,String message)
+    {
+    	
+    	if(model2.getRowCount()==0)
+    		return -1;
+    	for(int i=0;i<model2.getRowCount();i++)
+    	{
+    	//	JOptionPane.showMessageDialog(null, label+model2.getValueAt(i,2).toString()+message+model2.getValueAt(i,3).toString(),"test started", JOptionPane.OK_OPTION);
+    		if(model2.getValueAt(i,1).toString().compareToIgnoreCase(label)==0 && model2.getValueAt(i,3).toString().compareToIgnoreCase(message)==0)
+    			return i;
+    	}
+    	return -1;
+    }
+    
+            	
+    
+   
+    public void  saveTable() 
+    {
+    	myJTable.getRowCount();
+    	myJTable.getColumnCount();
+    //	JOptionPane.showMessageDialog(null,JMeterUtils.getResString("test_fragment_title")+JMeterUtils.getResString("thread_group_title")+"row Count -"+Integer.toString(myJTable.getRowCount())+"  colm count -"+Integer.toString(myJTable.getColumnCount()),"srtysrt", JOptionPane.OK_OPTION);
+    	if(saveAsCsv.isSelected()) 
+    	{
+    	/*
+    		JFileChooser chooser = FileDialoger.promptToSaveFile("summary.csv");//$NON-NLS-1$
+         if (chooser == null) {
+             return;
+         }
+         */
+        
+    		FileWriter writer = null;
+         try {
+             writer = new FileWriter(summaryCsvFile);
+             CSVSaveService.saveCSVStats(model,writer, saveHeaders.isSelected());
+         } catch (FileNotFoundException e) {
+             log.warn(e.getMessage());
+         } catch (IOException e) {
+             log.warn(e.getMessage());
+         } finally {
+             JOrphanUtils.closeQuietly(writer);
+         }
+    	}
+        if(saveAsPdf.isSelected())
+        {
+        /*	JFileChooser chooser = FileDialoger.promptToSaveFile("summary.pdf");//$NON-NLS-1$
+            if (chooser == null) {
+                return;
+            }*/
+            FileWriter writer = null;
+            try {
+            	
+               // writer = new FileWriter(reportPdfFile);
+                Document document = new Document();
+                PdfWriter.getInstance(document, new FileOutputStream(reportPdfFile));
+                createPdf(reportPdfFile,document,true);
+            
+                /*document.open();
+                addMetaData(document);
+                addTitlePage(document);
+                addContent(document);
+                document.close();
+                */
+                
+                
+              } catch (Exception e) {
+                e.printStackTrace();
+              }
+            
+            finally
+            {
+            	
+            }
+            
+        }
+       /* JFileChooser chooser = FileDialoger.promptToSaveFile("Errors.csv");//$NON-NLS-1$
+        if (chooser == null) {
+            return;
+        }*/
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(errorCsvFile);       
+            CSVSaveService.saveCSVStats(model2,writer, saveHeaders.isSelected());
+        } catch (FileNotFoundException e) {
+            log.warn(e.getMessage());
+        } catch (IOException e) {
+            log.warn(e.getMessage());
+        } finally {
+            JOrphanUtils.closeQuietly(writer);
+        }
+    	                            
+    }
+    private static void addEmptyLine(Paragraph paragraph, int number) {
+        for (int i = 0; i < number; i++) {
+          paragraph.add(new Paragraph(" "));
+        }
+      }
+   public void copyModel()
+   {   Vector rows = null;
+	   int m= model.getRowCount();
+	  
+	for(int i=0;i<m;i++)
+	{ for(int j=0;j<10;j++)
+	   {
+		rows.add( model.getValueAt(i, j));
+	   }
+	   
+	   model4.addRow(rows);
+   }
+   }
+    
+//writing to pdf fns
+    public void createPdf(String filename, Document document2,Boolean includeErrors)
+            throws IOException, DocumentException {
+        	// step 1
+            Document document = new Document();
+            // step 2
+          //  OutputStream outputStream = new OutputStream(new FileOutputStream(filename));
+            PdfWriter.getInstance(document,new FileOutputStream(filename));
+            // step 3
+            document.open();
+            // step 4
+           
+ 
+              Font titleFont = new Font(Font.FontFamily.HELVETICA, 30,
+          	      Font.BOLD,clr);//BaseColor.Color.getHSBColor(258, 100, 13));
+            Paragraph emptyLine = new Paragraph();
+            addEmptyLine(emptyLine, 2);
+            Paragraph title = new Paragraph("Test Report",titleFont);
+            title.setAlignment(Element.ALIGN_CENTER);
+            
+            BaseColor BC = new BaseColor(164,188,196) ;
+    	   
+           
+    	    
+            document.add(title);
+            document.add(emptyLine);
+            emptyLine = new Paragraph(" ");
+            Date dNow = new Date( );
+            SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+        //    addEmptyLine(emptyLine, 0);
+            document.add(new Paragraph("Report created on : "+ft.format(dNow),small));
+            document.add(emptyLine);   
+            document.add(emptyLine);   
+            document.add(emptyLine);   
+            document.add(new Paragraph("Test Summary Report",subFont));
+           // document.add(emptyLine);
+            if(includeErrors==true)
+            	copyModel();
+            
+            PdfPTable table = createTable1();
+           
+          
+            document.add(new Paragraph(" ")); 
+            document.add(emptyLine);   
+            document.add(table); 
+            table.setSpacingBefore(5);
+            table.setSpacingAfter(5); 
+            
+            if(includeErrors==true)
+            {
+            document.add(emptyLine);   
+            document.add(emptyLine);
+            document.add(emptyLine);   
+             document.add(new Paragraph("Test Error Report",subFont));
+             document.add(emptyLine);
+             document.add(emptyLine);    
+             PdfPTable table2 = createTable2();
+            document.add(table2);
+            table2.setSpacingBefore(5);
+            table2.setSpacingAfter(5);           
+            }
+           
+            // step 5
+            //adding  graphs
+            
+            //PdfWriter writer ;
+          //  writer = PdfWriter.getInstance(document, outputStream);
+      
+            Image[] img= new Image[5] ;
+           
+        img[0] = createGraphs("Average Response Time of samples for each Request","Average(ms)",2,imgFiles[0]);  //df *add 90%line  csv summary model table
+        img[1] = createGraphs("Number of samples processed for each Request","Number of Samples",1,imgFiles[1]);
+        img[2] = createGraphs("Error % of samples for each Request","Error %",7,imgFiles[2]);
+        img[3] = createGraphs("Throughput of samples for each Request","Throughput(ms)",8,imgFiles[3]);
+        img[4] = createGraphs("90 % Line of samples for each Request","90% line(ms)",4,imgFiles[4]);
+           
+           // document.add(image1);
+        document.newPage();
+        document.add(new Paragraph("Graphs ",subFont));
+        document.add(emptyLine);
+            document.add(img[0]);
+            document.add(img[1]);
+            document.add(img[2]);
+            document.add(img[3]);
+            document.add(img[4]);
+           // document.
+           
+            
+            
+           //release resources 
+            document.close();
+            document = null;
+             
+        
+            
+        }
+     
+        /**
+         * Creates a table; widths are set with setWidths().
+         * @return a PdfPTable
+         * @throws DocumentException
+         */
+        public  PdfPTable createTable1() throws DocumentException {  
+        	
+        	PdfPTable table = new PdfPTable(7);
+       
+            table.setWidthPercentage(570 / 5.23f);
+            table.setWidths(new int[]{4,4,3,3,3,3,5});
+            PdfPCell cell = null;
+            for(int k=0;k<10;k++)
+            {
+            	if(k!=3&&k!=4&&k!=9)
+            	{
+            		cell = new PdfPCell(new Phrase(JMeterUtils.getResString(COLUMNS[k]),headerFont));         	
+            	    BaseColor BC = new BaseColor(164,188,196) ;
+            	    cell.setBackgroundColor(BC);
+                    cell.setColspan(1);
+                    table.addCell(cell);
+            	}
+            }
+           
+            	for(int l=0;l<model4.getRowCount();l++)  //row count does not include table headers
+            		for(int k=0;k<10;k++)
+            {
+            			if(k!=3&&k!=4&&k!=9)
+            				{
+            				cell = new PdfPCell(new Phrase(model4.getValueAt(l, k).toString(),rowFont)); 
+            				cell.setGrayFill(2);
+            				table.addCell(cell);
+            				}
+            }
+            return table;
+        	
+        	/* original basic statements
+        	PdfPTable table = new PdfPTable(3);
+            table.setWidthPercentage(288 / 5.23f);
+            table.setWidths(new int[]{2, 1, 1});
+            PdfPCell cell;
+            cell = new PdfPCell(new Phrase("Table 1"));
+            cell.setColspan(3);
+            table.addCell(cell);
+            cell = new PdfPCell(new Phrase("Cell with rowspan 2"));
+            cell.setRowspan(2);
+            table.addCell(cell);
+            table.addCell("row 1; cell 1");
+            table.addCell("row 1; cell 2");
+            table.addCell("row 2; cell 1");
+            table.addCell("row 2; cell 2");
+            return table;
+            */
+        }
+        
+        public  PdfPTable createTable2() throws DocumentException {
+        	PdfPTable table = new PdfPTable(4);
+       
+            table.setWidthPercentage(570 / 5.23f);
+            table.setWidths(new int[]{1,2,1,3});
+            PdfPCell cell = null;
+            for(int k=0;k<4;k++)
+            {
+            	{
+            		cell = new PdfPCell(new Phrase(model2.getColumnName(k),headerFont));         	
+            	    BaseColor BC = new BaseColor(164,188,196) ;
+            	    cell.setBackgroundColor(BC);
+                    cell.setColspan(1);
+                    table.addCell(cell);
+            	}
+            }
+           
+            	for(int l=0;l<model2.getRowCount();l++)  //row count does not include table headers
+            		for(int k=0;k<4;k++)
+            {
+            			
+            				cell = new PdfPCell(new Phrase(model2.getValueAt(l, k).toString(),rowFont)); 
+            				cell.setGrayFill(2);
+            				table.addCell(cell);
+            				
+            }
+            return table;
+        }
+     
+        /**
+         * Creates a table; widths are set with setWidths().
+         * @return a PdfPTable
+         * @throws DocumentException
+         */
+        
+        //createGraphs("Average Response Time of samples for each Request","Average(ms)",2);
+        public synchronized Image  createGraphs(String chartName,String colName,int colNo,String imgName)
+        {
+        	 DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        	 for(int i=0;i<model4.getRowCount();i++) 
+        	
+        		 {
+        		 JOptionPane.showMessageDialog(null,model4.getValueAt(i, colNo) ,"test started", JOptionPane.OK_OPTION);
+        		 try
+        		 {
+        		 dataset.setValue( (Number)model4.getValueAt(i, colNo), colName,model4.getValueAt(i, 0).toString());
+        		 
+        		 }
+        		 catch(Exception e)
+        		 {
+        			 dataset.setValue( (Number)Float.parseFloat((String) model4.getValueAt(i, colNo)), colName,model4.getValueAt(i, 0).toString());
+        		 }
+        		 finally
+        		 {
+        			 
+        		 }
+        		 }
+       ChartFactory.setChartTheme(StandardChartTheme.createDarknessTheme());
+        
+        	 
+        	 final JFreeChart chart = ChartFactory.createBarChart3D(
+        	            chartName,      // chart title
+        	            "Requests",               // domain axis label
+        	              
+        	            colName,                  // range axis label
+        	            dataset,                  // data
+        	            PlotOrientation.VERTICAL, // orientation
+        	            true,                     // include legend
+        	            true,                     // tooltips
+        	            false                     // urls
+        	        );
+                      
+        	        final CategoryPlot plot = chart.getCategoryPlot();
+        	       
+        	        final CategoryAxis axis = plot.getDomainAxis();
+        	        double angle = Math.PI*(1-0.0375*model4.getRowCount());
+        	        if(angle<0)angle=Math.PI/2.0;
+        	        else if(angle<Math.PI/8)angle=Math.PI/8.0;
+        	        	
+        	        axis.setCategoryLabelPositions(  CategoryLabelPositions.createUpRotationLabelPositions(angle)); //    (Math.PI / 2.5)	        );
+        	        final BarRenderer3D renderer = (BarRenderer3D) plot.getRenderer();
+        	        renderer.setDrawBarOutline(false);
+        	        renderer.setMaximumBarWidth(0.10);
+        	       
+        	       
+        	        
+        	        
+					try {
+						//java.io.OutputStream out= new OutputStream(new FileOutputStream(BASEPATH+"//MyFile.jpg"));
+						ChartUtilities.saveChartAsJPEG(new File(BASEPATH+"//"+imgName), chart, 400, 300);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+           
+					
+					
+					Image img=null;
+        		 try {
+					     img= Image.getInstance(BASEPATH+"//"+imgName);
+				} catch (BadElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            
+        	return img;
+        }
+        		
+        	
+        
+     
+// ends
+    
+    public JPanel createSavePanel()
+    {
+    
+    
+    
+    saveAsCsv.setSelected(true);
+   
+	browse.setActionCommand(BROWSE);
+	browse.addActionListener(this);
+	extractToPdf.setActionCommand(EXTRACTTOPDF);
+
+	extractToPdf.addActionListener(this);
+	//extractToPdf.setEnabled(true);
+	
+   
+   // createErrorLog.setActionCommand(CEL);
+   JPanel basepathPanel = new JPanel();
+    JPanel panel1 = new JPanel(new GridLayout(1,3));
+    JPanel panel2 = new JPanel();
+    JPanel panel3 = new JPanel(new BorderLayout());
+    JPanel panel5 = new JPanel(new BorderLayout());
+    JPanel panel4 = new JPanel(new BorderLayout());
+
+    GridLayout grid = new GridLayout(1,3);
+    grid.setHgap(50);
+    panel2.setLayout(grid);
+
+    panel1.add(saveAsCsv);
+    panel1.add(saveAsPdf);
+  // panel1.add(save);
+    
+    panel2.add(viewTestHistory);
+    panel2.add(compareTestReports);
+    panel2.add(extractToPdf);
+    
+    panel3.add(panel1,BorderLayout.NORTH);
+    panel3.add(panel2,BorderLayout.SOUTH);
+    panel5.add(selectDir,BorderLayout.WEST);
+    panel5.add(basepath,BorderLayout.CENTER);
+    panel5.add(browse,BorderLayout.EAST);
+  
+	viewTestHistory.addActionListener(this);
+	viewTestHistory.setEnabled(true);
+	
+	compareTestReports.addActionListener(this);
+	compareTestReports.setEnabled(true);
+	
+	 
+    panel4.add(panel5,BorderLayout.NORTH);
+    panel4.add(panel3,BorderLayout.SOUTH);
+	 
+    return panel4;
+    }
+    
+  
+    
+
+    protected Container makeTitlePanel() {
+        VerticalPanel titlePanel = new VerticalPanel();
+        titlePanel.add(createTitleLabel());
+        VerticalPanel contentPanel = new VerticalPanel();
+        contentPanel.setBorder(BorderFactory.createEtchedBorder());
+        contentPanel.add(getNamePanel());       
+        contentPanel.add(commentPanel);
+        titlePanel.add(contentPanel);
+        return titlePanel;
+    }
+
+
+    @Override
+    public void modifyTestElement(TestElement c) {
+        super.modifyTestElement(c);
+        c.setProperty(USE_GROUP_NAME, useGroupName.isSelected(), false);
+        c.setProperty(SAVE_HEADERS, saveHeaders.isSelected(), true);
+    }
+
+    @Override
+    public void configure(TestElement el) {
+        super.configure(el);
+        useGroupName.setSelected(el.getPropertyAsBoolean(USE_GROUP_NAME, false));
+        saveHeaders.setSelected(el.getPropertyAsBoolean(SAVE_HEADERS, true));
+    }
+public void dispDialog()
+{
+    JFrame.setDefaultLookAndFeelDecorated(true);
+
+    frame.setTitle("Create PDF Report from saved CSV result");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    GridLayout g= new GridLayout(3,1); 
+    frame.setLayout(g);
+    JPanel p1,p2,p3;
+    p1= new JPanel();
+    p2= new JPanel();
+    p3= new JPanel();
+    p1.setLayout(new BorderLayout());
+    p2.setLayout(new BorderLayout());
+    p3.setLayout(new BorderLayout());
+    
+    JLabel label1 = new JLabel("Select the CSV result file to be used for the report");
+    JLabel label2 = new JLabel("Select the destination folder for the PDF report");
+   JTextField tf1 = new  JTextField("");
+   JTextField tf2 = new  JTextField("");
+  
+   JButton  button1= new JButton("Browse");
+    button1.addActionListener(this);
+   button1.setActionCommand("Browse1");
+   
+   JButton  button2= new JButton("Browse");
+   button2.addActionListener(this);
+   button2.setActionCommand("Browse2");
+  
+  JButton  button3= new JButton("Create Report");
+  button3.addActionListener(this);
+  button3.setActionCommand("createReport");
+  
+ p1.add(label1,BorderLayout.WEST);
+ p1.add(tf1,BorderLayout.CENTER);
+ p1.add(button1,BorderLayout.EAST);
+ p2.add(label2,BorderLayout.WEST);
+ p2.add(tf2,BorderLayout.CENTER);
+ p2.add(button2,BorderLayout.EAST);
+ p3.add(button3,BorderLayout.CENTER);
+ frame.add(p1);
+ frame.add(p2);
+ frame.add(p3);
+   // btn = new JButton("Open the other JFrame!");
+   //btn.addActionListener(this);
+   // btn.setActionCommand("Open");
+   // frame.add(btn);
+    frame.pack();
+    frame.setVisible(true);
+}
+    public synchronized  void extract2Pdf() throws IOException, DocumentException
+    {
+    	dispDialog();
+    	 BASEPATH=basepath.getText().trim();
+         BASEPATH=BASEPATH+"\\"+this.getName()+"_"+GetTimeStampInHMS();
+ 		try {
+ 			File createDir = new File(BASEPATH);
+ 	
+ 			createDir.mkdirs();
+ 		} catch (Exception e) {
+ 			// TODO Auto-generated catch block
+ 			e.printStackTrace();
+ 		}
+         reportPdfFile=BASEPATH+"\\"+"TestReport"+"_"+GetTimeStampInHMS() +".pdf";
+    	File csvFile;
+    	 JFileChooser chooser = FileDialoger.promptToOpenFile();
+         if (chooser == null) {
+             return;
+         }
+         csvFile= chooser.getSelectedFile();
+    	FileReader fr;
+    	try {
+			fr = new FileReader(csvFile);			
+			CSVReader cr= new CSVReader(fr);
+			String []row1;
+			int i=0;
+			cr.readNext();
+			JOptionPane.showMessageDialog(null,"creating model","ert", JOptionPane.OK_OPTION);
+			while(true)
+			{
+				synchronized(this){
+				row1= cr.readNext();
+				if(row1==null)break;
+				else
+				{
+					
+					model4.addRow(row1);
+				//	JOptionPane.showMessageDialog(null,row,"ert", JOptionPane.OK_OPTION);
+				   
+					}
+				}
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	  
+    	 Document document = new Document();
+         PdfWriter.getInstance(document, new FileOutputStream(reportPdfFile));
+         createPdf(reportPdfFile,document,false);
+        
+    	
+    	   
+    	
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent ev) {
+String action = ev.getActionCommand();
+    	
+    	if(action.equals(BROWSE))
+    	{
+    		
+    		JFileChooser j = new JFileChooser();
+    		j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    		 int returnVal = j.showOpenDialog(this);
+     	   
+     	    if (returnVal == JFileChooser.APPROVE_OPTION) {
+     	    	basepath.setText(j.getSelectedFile().getAbsolutePath());
+     	    	BASEPATH=basepath.getText().trim();
+     	    	JOptionPane.showMessageDialog(null, "alert",basepath.getText(), JOptionPane.OK_OPTION);
+    		
+    	}
+    	}
+    	else if(action.equals(EXTRACTTOPDF))
+    	{
+    		
+				try {
+					extract2Pdf();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (DocumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+            
+    	}
+    	else if(action.equals("Open"))
+    	{
+    		
+                frame.dispose();
+               
+    	}
+    	
+        if (ev.getSource() == saveTable) {
+            JFileChooser chooser = FileDialoger.promptToSaveFile("aggregate.csv");//$NON-NLS-1$
+            if (chooser == null) {
+                return;
+            }
+            FileWriter writer = null;
+            try {
+                writer = new FileWriter(chooser.getSelectedFile()); // TODO Charset ?
+                CSVSaveService.saveCSVStats(model,writer, saveHeaders.isSelected());
+            } catch (FileNotFoundException e) {
+                log.warn(e.getMessage());
+            } catch (IOException e) {
+                log.warn(e.getMessage());
+            } finally {
+                JOrphanUtils.closeQuietly(writer);
+            }
+        }
+    }
+
+
+	@Override
+	public void testStarted() {
+		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null, "ttttttttttttttttttttt",basepath.getText(), JOptionPane.OK_OPTION);
+		
+	}
+
+	@Override
+	public void testStarted(String host) {
+		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null, "ttttttttttttttttttttt",basepath.getText(), JOptionPane.OK_OPTION);
+	}
+
+	@Override
+	public void testEnded() {
+		// TODO Auto-generated method stub                
+		
+	}
+
+	@Override
+	public void testEnded(String host) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1505695/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/client
+END
+InitialContextFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1505695/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/client/InitialContextFactory.java
+END
+ReceiveSubscriber.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/asf/!svn/ver/1505695/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/client/ReceiveSubscriber.java
+END
+ClientPool.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1231377/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/client/ClientPool.java
+END
+Publisher.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1440726/jmeter/trunk/src/protocol/jms/org/apache/jmeter/protocol/jms/client/Publisher.java
+END

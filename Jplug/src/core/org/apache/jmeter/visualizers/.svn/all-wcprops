@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/visualizers
+END
+Printable.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/visualizers/Printable.java
+END
+ImageVisualizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1377064/jmeter/trunk/src/core/org/apache/jmeter/visualizers/ImageVisualizer.java
+END
+Visualizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1377076/jmeter/trunk/src/core/org/apache/jmeter/visualizers/Visualizer.java
+END
+RunningSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1381372/jmeter/trunk/src/core/org/apache/jmeter/visualizers/RunningSample.java
+END
+Sample.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/visualizers/Sample.java
+END
+CachingStatCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1203375/jmeter/trunk/src/core/org/apache/jmeter/visualizers/CachingStatCalculator.java
+END
+SamplingStatCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1381371/jmeter/trunk/src/core/org/apache/jmeter/visualizers/SamplingStatCalculator.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/visualizers/package.html
+END
+TableSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/visualizers/TableSample.java
+END

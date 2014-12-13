@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property
+END
+NullProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/NullProperty.java
+END
+LongProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/LongProperty.java
+END
+StringProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/StringProperty.java
+END
+DoubleProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/DoubleProperty.java
+END
+MultiProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/MultiProperty.java
+END
+TestElementProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/TestElementProperty.java
+END
+PropertyIteratorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/PropertyIteratorImpl.java
+END
+FunctionProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/FunctionProperty.java
+END
+FloatProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/FloatProperty.java
+END
+IntegerProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/IntegerProperty.java
+END
+MapProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/MapProperty.java
+END
+BooleanProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/BooleanProperty.java
+END
+JMeterProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1377076/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/JMeterProperty.java
+END
+ObjectProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/ObjectProperty.java
+END
+PropertyIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1377076/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/PropertyIterator.java
+END
+CollectionProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/CollectionProperty.java
+END
+AbstractProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/AbstractProperty.java
+END
+NumberProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/testelement/property/NumberProperty.java
+END

@@ -1,0 +1,54 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk/src/core/org/apache/jmeter/plugin
+http://svn.apache.org/repos/asf
+
+
+
+2012-08-24T19:53:26.499326Z
+1377076
+pmouawad
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+JMeterPlugin.java
+file
+
+
+
+
+2013-09-14T12:17:30.000000Z
+878f5df5e72c1dca37044eeb5c4fa4f6
+2012-08-24T19:53:26.499326Z
+1377076
+pmouawad
+has-props
+
+PluginManager.java
+file
+
+
+
+
+2013-09-14T12:17:30.000000Z
+345033dbff7fd898e61b6f9f880a64b7
+2008-07-06T23:56:15.788785Z
+674365
+sebb
+has-props
+

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1513863/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui
+END
+SoapSamplerGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui/SoapSamplerGui.java
+END
+HttpTestSampleGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/asf/!svn/ver/1513863/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui/HttpTestSampleGui.java
+END
+RecordController.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui/RecordController.java
+END
+WebServiceSamplerGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui/WebServiceSamplerGui.java
+END
+HttpMirrorControlGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui/HttpMirrorControlGui.java
+END
+AjpSamplerGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/control/gui/AjpSamplerGui.java
+END

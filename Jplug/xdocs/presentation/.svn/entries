@@ -1,0 +1,54 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk/xdocs/presentation
+http://svn.apache.org/repos/asf
+
+
+
+2005-06-30T01:09:27.000000Z
+325492
+woolfel
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+jmeter_presentation.sxi
+file
+
+
+
+
+2013-09-14T12:13:06.000000Z
+502c565181fa087a13a89a1930165a48
+2005-06-20T03:40:35.000000Z
+325487
+woolfel
+has-props
+
+jmeter_presentation_part2.sxi
+file
+
+
+
+
+2013-09-14T12:13:06.000000Z
+f44a67792c0dbe883383a3028bbaeacb
+2005-06-30T01:09:27.000000Z
+325492
+woolfel
+has-props
+

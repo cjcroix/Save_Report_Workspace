@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1515603/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui
+END
+XMLConfPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/XMLConfPanel.java
+END
+MD5HexAssertionGUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/MD5HexAssertionGUI.java
+END
+XPathPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/1509878/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/XPathPanel.java
+END
+AssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1500356/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/AssertionGui.java
+END
+BeanShellAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1515603/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/BeanShellAssertionGui.java
+END
+SMIMEAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/SMIMEAssertionGui.java
+END
+DurationAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/DurationAssertionGui.java
+END
+XMLAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/XMLAssertionGui.java
+END
+XMLSchemaAssertionGUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/XMLSchemaAssertionGUI.java
+END
+SizeAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1413952/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/SizeAssertionGui.java
+END
+XPathAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1429387/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/XPathAssertionGui.java
+END
+HTMLAssertionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1457573/jmeter/trunk/src/components/org/apache/jmeter/assertions/gui/HTMLAssertionGui.java
+END

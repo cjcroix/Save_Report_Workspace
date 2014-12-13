@@ -1,0 +1,22 @@
+K 10
+svn:ignore
+V 203
+local
+ApacheJMeter.jar
+HTTPSamplerFullTestFile.txt
+test*.txt
+*.bak
+*.csv
+bug*.*
+Bug*.*
+*.jtl
+*.log
+*.jmx
+*.xml
+*.tmp
+*.tsv
+proxyserver.jks
+ApacheJMeterTemporaryRootCA.crt
+ApacheJMeterTemporaryRootCA.usr
+
+END

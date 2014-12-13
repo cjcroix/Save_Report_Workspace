@@ -1,0 +1,606 @@
+package org.apache.jmeter.visualizers;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+import javax.swing.table.DefaultTableModel;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import au.com.bytecode.opencsv.CSVReader;
+
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
+/**
+ * Class used for creating a Comparison PDF report from 2 CSV summary files.
+ * 
+ * @author Save Report Project Group 2014
+ * 
+ */
+class CreateComparisonPdfReport {
+	private DefaultTableModel summaryTableModel1 = new DefaultTableModel();
+	private DefaultTableModel summaryTableModel2 = new DefaultTableModel();
+	private File summaryCsvFile1;
+	private File summaryCsvFile2;
+	private String comparisonPdfFile;
+	private String outputDirectory;
+	DefaultTableModel summaryModel;
+	String[] aggregatePdfHeaders = { "Sample Label", "Sample Count",
+			"Average (ms)", "90% Line (ms)", "Min (ms)", "Max (ms)", "Error %",
+			"Throughput (ms)" };
+	String[] summaryPdfHeaders = { "Sample Label", "Sample Count",
+			"Average (ms)", "Min (ms)", "Max (ms)", "Error %",
+	"Throughput (ms)" };
+	private Font headerFont = new Font(Font.FontFamily.COURIER, 12, Font.BOLD);
+	private Font rowFont = new Font(Font.FontFamily.COURIER, 11, Font.NORMAL);
+	static BaseColor clr = new BaseColor(0, 44, 94);
+	static BaseColor clr2 = new BaseColor(102, 0, 51);
+	private Font subFont = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD,
+			clr);
+	private Font subFont2 = new Font(Font.FontFamily.COURIER, 16, Font.NORMAL,
+			clr2);
+	private Font small = new Font(Font.FontFamily.COURIER, 12);
+	private boolean isAggregate;
+
+	/**
+	 * This function is called by the save report object. It is used to
+	 * initialize the data members of this class.
+	 * 
+	 * @param reportOutputDir
+	 * @param csvFile1
+	 * @param csvFile2
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
+	public void initialize(String reportOutputDir, File csvFile1, File csvFile2)
+			throws IOException, DocumentException {
+		summaryCsvFile1 = csvFile1;
+		summaryCsvFile2 = csvFile2;
+		isAggregateOrSummary();
+		if (isAggregate) {
+			summaryTableModel1 = createAggregateModel(summaryCsvFile1);
+			summaryTableModel2 = createAggregateModel(summaryCsvFile2);
+		} else {
+			summaryTableModel1 = createSummaryModel(summaryCsvFile1);
+			summaryTableModel2 = createSummaryModel(summaryCsvFile2);
+		}
+
+		comparisonPdfFile = reportOutputDir + File.separatorChar
+				+ "ComparisonReport" + "_" + GetTimeStampInHMS() + ".pdf";
+		outputDirectory = reportOutputDir;
+	
+					createComparisonReport();
+	}
+
+	private void isAggregateOrSummary() {
+		// TODO Auto-generated method stub
+		File testFile = new File(summaryCsvFile1.getPath());
+		Scanner fscan = null;
+		try {
+			fscan = new Scanner(testFile);
+			if (fscan.findInLine("aggregate_report_median").compareTo(
+					"aggregate_report_median") == 0)
+				isAggregate = true;
+			else
+				isAggregate = false;
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			isAggregate = false;
+		}
+
+		finally {
+			fscan.close();
+		}
+	}
+
+	/**
+	 * Creates a DefaultTableModel model from the CSV file containing the test
+	 * summary.
+	 * 
+	 * @param csvFile
+	 * @return DefaultTableModel object
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
+	public synchronized DefaultTableModel createAggregateModel(File csvFile)
+			throws IOException, DocumentException {
+		summaryModel = new DefaultTableModel();
+		for (int i = 0; i < 10; i++)
+			summaryModel.addColumn(SaveReport.COLUMNS[i]);
+		FileReader fr;
+		try {
+			fr = new FileReader(csvFile);
+			CSVReader cr = new CSVReader(fr);
+			String[] row1;
+			cr.readNext();
+			while (true) {
+				synchronized (this) {
+					row1 = cr.readNext();
+					if (row1 == null)
+						break;
+					else {
+						summaryModel.addRow(row1);
+						summaryModel.setValueAt(Double.parseDouble(summaryModel
+								.getValueAt(summaryModel.getRowCount() - 1, 7)
+								.toString()) * 100,
+								summaryModel.getRowCount() - 1, 7);
+
+					}
+				}
+			}
+			cr.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return summaryModel;
+	}
+
+	public synchronized DefaultTableModel createSummaryModel(File csvFile)
+			throws IOException, DocumentException {
+		summaryModel = new DefaultTableModel();
+		String[] COLUMNS = { "sampler_label", //$NON-NLS-1$
+				"aggregate_report_count", //$NON-NLS-1$
+				"average", //$NON-NLS-1$
+				"aggregate_report_min", //$NON-NLS-1$
+				"aggregate_report_max", //$NON-NLS-1$
+				"aggregate_report_stddev", //$NON-NLS-1$
+				"aggregate_report_error%", //$NON-NLS-1$
+				"aggregate_report_rate", //$NON-NLS-1$
+				"aggregate_report_bandwidth", //$NON-NLS-1$
+				"average_bytes", //$NON-NLS-1$
+		};
+		for (int i = 0; i < 10; i++)
+			summaryModel.addColumn(COLUMNS[i]);
+		FileReader fr;
+		try {
+			fr = new FileReader(csvFile);
+			CSVReader cr = new CSVReader(fr);
+			String[] row1;
+			cr.readNext();
+			while (true) {
+				synchronized (this) {
+					row1 = cr.readNext();
+					if (row1 == null)
+						break;
+					else {
+						summaryModel.addRow(row1);
+						summaryModel.setValueAt(Double.parseDouble(summaryModel
+								.getValueAt(summaryModel.getRowCount() - 1, 6)
+								.toString()) * 100,
+								summaryModel.getRowCount() - 1, 6);
+					}
+				}
+			}
+			cr.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return summaryModel;
+	}
+
+	/**
+	 * Creates the PDF comparison report
+	 * 
+	 * @throws DocumentException
+	 * @throws IOException
+	 */
+	public void createComparisonReport() throws DocumentException, IOException {
+		// step 1
+		Document document = new Document();
+		// step 2
+		FileOutputStream fos;
+		fos = new FileOutputStream(comparisonPdfFile);
+		PdfWriter.getInstance(document, fos);
+		// step 3
+		document.open();
+
+		Font titleFont = new Font(Font.FontFamily.HELVETICA, 30, Font.BOLD, clr);
+		Paragraph emptyLine = new Paragraph();
+		emptyLine.add(new Paragraph(" "));
+		emptyLine.add(new Paragraph(" "));
+		Paragraph title = new Paragraph("Comparison of two Test Results",
+				titleFont);
+		title.setAlignment(Element.ALIGN_CENTER);
+		document.add(title);
+		document.add(emptyLine);
+		emptyLine = new Paragraph(" ");
+		Date dNow = new Date();
+		SimpleDateFormat ft = new SimpleDateFormat(
+				"E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+		document.add(new Paragraph("Report created on : " + ft.format(dNow),
+				small));
+		document.add(emptyLine);
+		document.add(emptyLine);
+		document.add(emptyLine);
+		if(isAggregate)
+		document.add(new Paragraph("Aggregate Report from file : ", subFont));
+		else
+			document.add(new Paragraph("Summary Report from file : ", subFont));
+		document.add(new Paragraph(summaryCsvFile1.getName(), subFont2));
+		// PdfPTable table1 = createPdfTable(summaryTableModel1);
+		PdfPTable table1 = null;
+		if (isAggregate)
+			table1 = createAggregateTable(summaryTableModel1);
+		else
+			table1 = createSummaryTable(summaryTableModel1);
+		document.add(new Paragraph(" "));
+		document.add(emptyLine);
+		document.add(table1);
+		table1.setSpacingBefore(5);
+		table1.setSpacingAfter(5);
+		document.add(emptyLine);
+		document.add(emptyLine);
+		document.add(emptyLine);
+		if(isAggregate)
+		document.add(new Paragraph("Aggregate Report from file : ", subFont));
+		else
+			document.add(new Paragraph("Summary Report from file : ", subFont));
+		document.add(new Paragraph(summaryCsvFile2.getName(), subFont2));
+		document.add(new Paragraph(" "));
+		document.add(emptyLine);
+		// PdfPTable table2 = createPdfTable(summaryTableModel2);
+		PdfPTable table2 = null;
+		if (isAggregate)
+			table2 = createAggregateTable(summaryTableModel2);
+		else
+			table2 = createSummaryTable(summaryTableModel2);
+		document.add(table2);
+		table2.setSpacingBefore(5);
+		table2.setSpacingAfter(5);
+
+		// adding graphs
+
+		Image[] graph = new Image[5];
+		String[] imageFiles = { "average.jpg", "sampleCount.jpg",
+				"errorPercent.jpg", "throughput.jpg", "ninetyPercentLine.jpg" };
+		graph[0] = createComparisonGraphs("Average Response Time of samples",
+				"Average(ms)", 2, imageFiles[0]); // df *add 90%line csv summary
+		// model table
+		graph[1] = createComparisonGraphs("Number of samples",
+				"Number of Samples", 1, imageFiles[1]);
+		if (isAggregate)
+			graph[2] = createComparisonGraphs("Error % of samples", "Error %",
+					7, imageFiles[2]);
+		else
+			graph[2] = createComparisonGraphs("Error % of samples", "Error %",
+					6, imageFiles[2]);
+		if (isAggregate)
+			graph[3] = createComparisonGraphs("Throughput of samples",
+					"Throughput(ms)", 8, imageFiles[3]);
+		else
+			graph[3] = createComparisonGraphs("Throughput of samples",
+					"Throughput(ms)", 7, imageFiles[3]);
+		if (isAggregate)
+			graph[4] = createComparisonGraphs("90 % Line of samples",
+					"90% line(ms)", 4, imageFiles[4]);
+		// release resources
+		document.newPage();
+		document.add(new Paragraph("Graphs ", subFont));
+		document.add(emptyLine);
+		document.add(graph[0]);
+		document.add(graph[1]);
+		document.add(graph[2]);
+		document.add(graph[3]);
+		if (isAggregate)
+			document.add(graph[4]);
+		document.close();
+		document = null;
+		fos.close();
+
+	}
+
+	/**
+	 * Creates a PdfTable table from the summary report model.This table is
+	 * written to the PDF
+	 * 
+	 * @return
+	 * @throws DocumentException
+	 */
+
+	public PdfPTable createAggregateTable(DefaultTableModel tableModel)
+			throws DocumentException {
+
+		PdfPTable table = new PdfPTable(8);
+
+		table.setWidthPercentage(570 / 5.23f);
+		table.setWidths(new int[] { 6, 4, 3, 4, 3, 3, 3, 4 });
+		PdfPCell cell = null;
+		for (int k = 0; k < 8; k++) {
+			{
+				cell = new PdfPCell(new Phrase(aggregatePdfHeaders[k],
+						headerFont));
+				BaseColor BC = new BaseColor(164, 188, 196);
+				cell.setBackgroundColor(BC);
+				cell.setColspan(1);
+				table.addCell(cell);
+			}
+		}
+
+		for (int l = 0; l < tableModel.getRowCount(); l++)
+			// row count does not include table headers
+			for (int k = 0; k < 10; k++) {
+				if (k != 3 && k != 9) {
+					cell = new PdfPCell(new Phrase(
+							setValuePrecision(tableModel.getValueAt(l, k)),
+							rowFont));
+					cell.setGrayFill(2);
+					table.addCell(cell);
+				}
+			}
+		return table;
+
+	}
+
+	public PdfPTable createSummaryTable(DefaultTableModel tableModel)
+			throws DocumentException {
+
+		PdfPTable table = new PdfPTable(7);
+
+		table.setWidthPercentage(570 / 5.23f);
+		table.setWidths(new int[] { 6, 4, 3, 3, 3, 3, 4 });
+		PdfPCell cell = null;
+		for (int k = 0; k < 7; k++) {
+			{
+				cell = new PdfPCell(
+						new Phrase(summaryPdfHeaders[k], headerFont));
+				BaseColor BC = new BaseColor(164, 188, 196);
+				cell.setBackgroundColor(BC);
+				cell.setColspan(1);
+				table.addCell(cell);
+			}
+		}
+
+		for (int l = 0; l < tableModel.getRowCount(); l++)
+			// row count does not include table headers
+			for (int k = 0; k < 10; k++) {
+				if (k != 5 && k != 8 && k != 9) {
+					cell = new PdfPCell(new Phrase(
+							setValuePrecision(tableModel.getValueAt(l, k)),
+							rowFont));
+					cell.setGrayFill(2);
+					table.addCell(cell);
+				}
+			}
+		return table;
+
+	}
+
+	/*
+	 * public PdfPTable createPdfTable(DefaultTableModel tableModel) throws
+	 * DocumentException { PdfPTable table = new PdfPTable(8);
+	 * 
+	 * table.setWidthPercentage(570 / 5.23f); table.setWidths(new int[] { 4, 4,
+	 * 3, 4, 3, 3, 3, 5 }); PdfPCell cell = null; for (int k = 0; k < 8; k++) {
+	 * { cell = new PdfPCell( new Phrase(summaryPdfHeaders[k], headerFont));
+	 * BaseColor BC = new BaseColor(164, 188, 196); cell.setBackgroundColor(BC);
+	 * cell.setColspan(1); table.addCell(cell); } }
+	 * 
+	 * for (int l = 0; l < tableModel.getRowCount(); l++) // row count does not
+	 * include table headers for (int k = 0; k < 10; k++) { if (k != 3 && k !=
+	 * 9) { cell = new PdfPCell(new Phrase(
+	 * setValuePrecision(tableModel.getValueAt(l, k)), rowFont));
+	 * cell.setGrayFill(2); table.addCell(cell); } } return table; }
+	 */
+
+	/**
+	 * Creates comparison graphs using the data from the table models of the two
+	 * CSV files.
+	 * 
+	 * @param title
+	 * @param value
+	 * @param col
+	 * @param imageFile
+	 * @return Comparison Graph
+	 * @throws IOException
+	 */
+	public Image createComparisonGraphs(String title, String value, int col,
+			String imageFile) throws IOException {
+
+		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+		for (int i = 0; i < summaryTableModel1.getRowCount() - 1; i++)
+
+		{
+			try {
+				dataset.addValue(
+						(Number) summaryTableModel1.getValueAt(i, col),
+						summaryCsvFile1.getName(), summaryTableModel1
+								.getValueAt(i, 0).toString());
+
+			} catch (Exception e) {
+
+				dataset.addValue((Number) Float
+						.parseFloat((String) summaryTableModel1.getValueAt(i,
+								col)), summaryCsvFile1.getName(),
+						summaryTableModel1.getValueAt(i, 0).toString());
+			} finally {
+
+			}
+		}
+
+		for (int i = 0; i < summaryTableModel2.getRowCount() - 1; i++)
+
+		{
+			try {
+
+				dataset.addValue(
+						(Number) summaryTableModel2.getValueAt(i, col),
+						summaryCsvFile2.getName(), summaryTableModel2
+								.getValueAt(i, 0).toString());
+
+			} catch (Exception e) {
+				dataset.addValue((Number) Float
+						.parseFloat((String) summaryTableModel2.getValueAt(i,
+								col)), summaryCsvFile2.getName(),
+						summaryTableModel2.getValueAt(i, 0).toString());
+			} finally {
+
+			}
+		}
+
+		ChartFactory.setChartTheme(StandardChartTheme.createDarknessTheme());
+		final JFreeChart chart = ChartFactory.createBarChart3D(title, // chart
+				// title
+				"Requests", // domain axis label
+				value, // range axis label
+				dataset, // data
+				PlotOrientation.VERTICAL, // orientation
+				true, // include legend
+				true, // tooltips
+				false // urls
+				);
+
+		chart.setAntiAlias(true);
+		final CategoryPlot plot = chart.getCategoryPlot();
+
+		final CategoryAxis axis = plot.getDomainAxis();
+		double angle = Math.PI / 4.0;// +0.02945*rowCount;
+		if (angle > Math.PI / 2.0)
+			angle = Math.PI / 2.0;
+
+		axis.setCategoryLabelPositions(CategoryLabelPositions
+				.createUpRotationLabelPositions(angle));
+
+		final CategoryItemRenderer renderer = plot.getRenderer();
+		final BarRenderer r = (BarRenderer) renderer;
+		r.setMaximumBarWidth(0.05);
+
+		try {
+			ChartUtilities.saveChartAsJPEG(new File(outputDirectory
+					+ File.separatorChar + imageFile), chart,
+					getChartWidth(summaryTableModel1.getRowCount()
+							+ summaryTableModel2.getRowCount()), 560);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		Image img = null;
+		try {
+			img = Image.getInstance(outputDirectory + File.separatorChar
+					+ imageFile);
+		} catch (BadElementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		img.scalePercent(getScaleFactor(summaryTableModel1.getRowCount()
+				+ summaryTableModel2.getRowCount()));
+		return img;
+
+	}
+
+	/**
+	 * Formats the values that are written to the PDF and withe the required
+	 * precision.
+	 * 
+	 * @param value
+	 * @return
+	 */
+	private String setValuePrecision(Object value) {
+		String valueString = value.toString();
+		double number;
+		try {
+			if (valueString.substring(0, 1).matches("[0-9]")) { // check if
+				// strng
+				// contains
+				// numbers or
+				// characters
+				number = Double.parseDouble(valueString);
+				if (number == Math.floor(number)) // Check if the value is an
+					// integer value
+					return valueString;
+				else {
+					valueString = String.format("%.4f", number);
+					return valueString;
+				}
+			} else
+				return valueString;
+		} catch (java.lang.NumberFormatException E) {
+			return value.toString();
+		} catch (Exception e) {
+			return value.toString();
+		}
+	}
+
+	/**
+	 * Returns the width of the graph as a function of the total number of
+	 * distinct requests to be shown in the graph.
+	 * 
+	 * @param rowCount
+	 * @return
+	 */
+	public int getChartWidth(int rowCount) {
+		if (rowCount <= 40)
+			return (840);
+		else
+			return (21 * rowCount);
+	}
+
+	/**
+	 * Returns the scale factor to be used to scale the graph as a function of
+	 * the total number of distinct requests to be shown in the graph.
+	 * 
+	 * @param rowCount
+	 * @return
+	 */
+	public float getScaleFactor(int rowCount) {
+		if (rowCount <= 40)
+			return (float) (62.5);
+		else {
+			float factor = (float) (62.5 * 840.0 / getChartWidth(rowCount));
+			return factor;
+		}
+	}
+
+	/**
+	 * Returns a timestamp of the form yyyy-MM-dd_HH-mm-ss
+	 * 
+	 * @return String containing the timestamp
+	 */
+	private String GetTimeStampInHMS() {
+
+		long epoch = System.currentTimeMillis() / 1000;
+		String date = new java.text.SimpleDateFormat("yyyy-MM-dd_HH-mm-ss")
+				.format(new java.util.Date(epoch * 1000));
+		return date;
+	}
+}

@@ -1,0 +1,59 @@
+K 14
+bugtraq:number
+V 4
+true
+K 14
+bugtraq:append
+V 4
+true
+K 15
+bugtraq:message
+V 20
+Bugzilla Id: %BUGID%
+K 13
+bugtraq:label
+V 12
+Bugzilla Id:
+K 11
+bugtraq:url
+V 58
+https://issues.apache.org/bugzilla/show_bug.cgi?id=%BUGID%
+K 10
+svn:ignore
+V 183
+*.log
+build
+dist
+site
+printable_docs
+jmeter-fb.*
+.classpath
+.project
+.externalToolBuilders
+.settings
+reports
+local
+.checkstyle
+.fbwarnings
+.fbprefs
+.pmd
+build-local.properties
+target
+
+K 14
+subclipse:tags
+V 357
+786921,v2_3_4,/jakarta/jmeter/tags/v2_3_4,tag
+963900,v2_4,/jakarta/jmeter/tags/v2_4,tag
+1158837,v2_5,/jakarta/jmeter/tags/v2_5,tag
+1178482,v2_5_1,/jakarta/jmeter/tags/v2_5_1,tag
+1195995,trunk,/jakarta/jmeter/trunk,tag
+1239301,v2_6,/jmeter/tags/v2_6,tag
+1343100,v2_7,/jmeter/tags/v2_7,tag
+1394743,v2_8,/jmeter/tags/v2_8,tag
+1439122,v2_9,/jmeter/tags/v2_9,tag
+K 21
+bugtraq:warnifnoissue
+V 4
+true
+END

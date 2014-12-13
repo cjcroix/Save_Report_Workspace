@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1227027/jmeter/trunk/test/src/org/apache/jmeter/protocol/tcp/sampler
+END
+BinaryTCPClientImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/asf/!svn/ver/1227027/jmeter/trunk/test/src/org/apache/jmeter/protocol/tcp/sampler/BinaryTCPClientImplTest.java
+END
+TCPClientDecoratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1227027/jmeter/trunk/test/src/org/apache/jmeter/protocol/tcp/sampler/TCPClientDecoratorTest.java
+END
+LengthPrefixedBinaryTCPClientImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/protocol/tcp/sampler/LengthPrefixedBinaryTCPClientImplTest.java
+END

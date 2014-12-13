@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1509986/jmeter/trunk/docs/images/screenshots/http-config
+END
+http-cookie-manager.png
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1376459/jmeter/trunk/docs/images/screenshots/http-config/http-cookie-manager.png
+END
+header-manager-example1a.gif
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/http-config/header-manager-example1a.gif
+END
+header-manager-example1b.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/http-config/header-manager-example1b.png
+END
+auth-manager-example1a.gif
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/http-config/auth-manager-example1a.gif
+END
+http-request-defaults.png
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/http-config/http-request-defaults.png
+END
+http-header-manager.png
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1398117/jmeter/trunk/docs/images/screenshots/http-config/http-header-manager.png
+END
+auth-manager-example1b.png
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1509986/jmeter/trunk/docs/images/screenshots/http-config/auth-manager-example1b.png
+END
+http-cache-manager.png
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1196574/jmeter/trunk/docs/images/screenshots/http-config/http-cache-manager.png
+END
+http-config-example.png
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/http-config/http-config-example.png
+END
+http-auth-manager.png
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1509986/jmeter/trunk/docs/images/screenshots/http-config/http-auth-manager.png
+END

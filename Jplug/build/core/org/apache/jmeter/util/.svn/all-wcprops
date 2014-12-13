@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1515953/jmeter/trunk/src/core/org/apache/jmeter/util
+END
+NamedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1377062/jmeter/trunk/src/core/org/apache/jmeter/util/NamedObject.java
+END
+BeanShellInterpreter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1498132/jmeter/trunk/src/core/org/apache/jmeter/util/BeanShellInterpreter.java
+END
+SlowInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/SlowInputStream.java
+END
+StringUtilities.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/StringUtilities.java
+END
+SlowSSLSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/SlowSSLSocket.java
+END
+XPathUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/core/org/apache/jmeter/util/XPathUtil.java
+END
+JMeterTreeNodeTransferable.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/1413261/jmeter/trunk/src/core/org/apache/jmeter/util/JMeterTreeNodeTransferable.java
+END
+JsseSSLManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1515953/jmeter/trunk/src/core/org/apache/jmeter/util/JsseSSLManager.java
+END
+CustomX509TrustManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/util/CustomX509TrustManager.java
+END
+LocaleChangeListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1377076/jmeter/trunk/src/core/org/apache/jmeter/util/LocaleChangeListener.java
+END
+SlowOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/SlowOutputStream.java
+END
+BeanShellTestElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1498134/jmeter/trunk/src/core/org/apache/jmeter/util/BeanShellTestElement.java
+END
+HttpSSLProtocolSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/util/HttpSSLProtocolSocketFactory.java
+END
+BSFTestElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1500556/jmeter/trunk/src/core/org/apache/jmeter/util/BSFTestElement.java
+END
+Document.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1413256/jmeter/trunk/src/core/org/apache/jmeter/util/Document.java
+END
+ColorHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/ColorHelper.java
+END
+BeanShellServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/util/BeanShellServer.java
+END
+ScriptingTestElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1500556/jmeter/trunk/src/core/org/apache/jmeter/util/ScriptingTestElement.java
+END
+ShutdownClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/ShutdownClient.java
+END
+BSFJavaScriptEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/util/BSFJavaScriptEngine.java
+END
+JMeterVersion.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1440170/jmeter/trunk/src/core/org/apache/jmeter/util/JMeterVersion.java
+END
+PropertiesBasedPrefixResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/core/org/apache/jmeter/util/PropertiesBasedPrefixResolver.java
+END
+ScriptingBeanInfoSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1500351/jmeter/trunk/src/core/org/apache/jmeter/util/ScriptingBeanInfoSupport.java
+END
+JSR223TestElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1500556/jmeter/trunk/src/core/org/apache/jmeter/util/JSR223TestElement.java
+END
+JMeterUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1461015/jmeter/trunk/src/core/org/apache/jmeter/util/JMeterUtils.java
+END
+BSFBeanInfoSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1500351/jmeter/trunk/src/core/org/apache/jmeter/util/BSFBeanInfoSupport.java
+END
+CPSPauser.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/CPSPauser.java
+END
+TidyException.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/TidyException.java
+END
+BeanShellClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1502404/jmeter/trunk/src/core/org/apache/jmeter/util/BeanShellClient.java
+END
+NameUpdater.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1235563/jmeter/trunk/src/core/org/apache/jmeter/util/NameUpdater.java
+END
+Calculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1338380/jmeter/trunk/src/core/org/apache/jmeter/util/Calculator.java
+END
+BeanShellBeanInfoSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1500351/jmeter/trunk/src/core/org/apache/jmeter/util/BeanShellBeanInfoSupport.java
+END
+LocaleChangeEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/LocaleChangeEvent.java
+END
+SlowSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/util/SlowSocket.java
+END
+JSR223BeanInfoSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1500358/jmeter/trunk/src/core/org/apache/jmeter/util/JSR223BeanInfoSupport.java
+END
+ScopePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1429379/jmeter/trunk/src/core/org/apache/jmeter/util/ScopePanel.java
+END
+SSLManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1429427/jmeter/trunk/src/core/org/apache/jmeter/util/SSLManager.java
+END

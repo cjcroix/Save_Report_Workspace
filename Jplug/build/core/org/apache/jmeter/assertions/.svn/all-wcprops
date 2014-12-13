@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/assertions
+END
+Assertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/assertions/Assertion.java
+END
+AssertionResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/assertions/AssertionResult.java
+END
+CompareAssertionResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/assertions/CompareAssertionResult.java
+END

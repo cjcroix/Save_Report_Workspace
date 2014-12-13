@@ -1,0 +1,385 @@
+package org.apache.jmeter.visualizers;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
+import java.util.Arrays;
+
+import javax.swing.*;
+import javax.swing.table.TableCellEditor;
+import javax.swing.JFileChooser;
+
+import org.apache.jmeter.gui.util.PowerTableModel;
+import org.apache.jmeter.testelement.TestElement;
+import org.apache.jmeter.testelement.property.JMeterProperty;
+import org.apache.jmeter.testelement.property.PropertyIterator;
+import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.visualizers.gui.AbstractListenerGui;
+import org.apache.jorphan.collections.Data;
+
+public class NewListener extends AbstractListenerGui implements Serializable,ActionListener{
+
+private static final long serialVersionUID = 240L;
+
+private JTextField basepath;
+
+private JButton browse = new JButton("Browse");
+private JRadioButton logOnlyProperties;
+private JRadioButton logErrorsAndProperties;
+private ButtonGroup group;/*This class is used to create a multiple-exclusion 
+scope for a set of buttons. 
+Creating a set of buttons with the same ButtonGroup object means that turning "on" 
+one of those buttons turns off all other buttons in the group.*/ 
+
+static String[]propertyHeaderArray=new String[1000];
+
+JMeterProperty BasePath=null;
+JMeterProperty LogProperties=null;
+JMeterProperty LogErrors=null;
+JMeterProperty LogErrorsAndProperties=null;
+JMeterProperty LogOnlyProperties=null;
+static JMeterProperty JPropertyName=null;
+
+private static final String BRO = "bro";
+
+TestElement intermediateErrorListenerTestElement;
+
+JTextField JPropertyNameField;
+
+private JTable table;
+
+private PowerTableModel tableModel;
+
+private JButton add;
+
+private JButton delete;
+
+private JCheckBox selectAll = new JCheckBox("Select all");
+ 
+//private JCheckBox  = new JCheckBox("Select all");
+
+
+private static final String SELECTALL = "SELECTALL";
+
+private static final String ADD = "add";
+
+private static final String DELETE = "delete";
+
+private String COLUMN_NAMES_0 = "Properties";
+
+public NewListener() {
+super();
+init();
+}
+
+public NewListener(boolean displayName) {
+init();
+}
+
+public String getLabelResource() {
+return this.getClass().getSimpleName(); //$NON-NLS-1$
+}
+
+@Override
+public String getStaticLabel() {
+return "New Listener";
+}
+
+@Override
+public void configure(TestElement el) {
+if(ErrorListener.updateAllowed==true)
+{
+initTableModel();
+table.setModel(tableModel);
+super.configure(el);
+
+BasePath=el.getProperty("FileBasePath");
+basepath.setText(BasePath.toString());
+
+LogOnlyProperties=el.getProperty("OnlyProperties");
+logOnlyProperties.setSelected(LogOnlyProperties.getBooleanValue());
+
+LogErrorsAndProperties=el.getProperty("ErrorsAndProperties");
+logErrorsAndProperties.setSelected(LogErrorsAndProperties.getBooleanValue());
+
+if (el instanceof ErrorListener) {
+tableModel.clearData();
+PropertyIterator iter = el.propertyIterator();
+while (iter.hasNext()) {
+JMeterProperty prop = iter.next();
+if(prop.getName().startsWith("JmeterProperty"))
+tableModel.addRow(new Object[]{prop.getStringValue()});
+}
+}
+checkDeleteStatus();
+}
+}
+
+public TestElement createTestElement() {
+ErrorListener errorMon = new ErrorListener();
+modifyTestElement(errorMon);
+return errorMon;
+}
+
+public void modifyTestElement(TestElement errorListener) {
+if(ErrorListener.updateAllowed==true)
+{
+if (table.isEditing()) {
+table.getCellEditor().stopCellEditing();
+}
+
+intermediateErrorListenerTestElement=(TestElement)errorListener.clone();
+Data model = tableModel.getData();
+errorListener.clear();
+model.reset();
+Arrays.fill(propertyHeaderArray, null);
+int counter=0;
+
+while (model.next()) {
+errorListener.setProperty("JmeterProperty"+counter,(String)model.getColumnValue(COLUMN_NAMES_0).toString().trim());
+JPropertyName=errorListener.getProperty("JmeterProperty"+counter);
+propertyHeaderArray[counter]=JPropertyName.toString();
+counter++;
+};
+
+super.configureTestElement(errorListener);
+
+errorListener.setProperty("FileBasePath",basepath.getText().trim());
+BasePath=errorListener.getProperty("FileBasePath");
+ErrorListener.BASEPATH=BasePath.toString();
+
+//Radio Button for Only Properties
+errorListener.setProperty("OnlyProperties",logOnlyProperties.isSelected());
+LogOnlyProperties=errorListener.getProperty("OnlyProperties");
+ErrorListener.ONLYPROPS=LogOnlyProperties.getBooleanValue();
+
+//Radio Button for Errors and Properties
+errorListener.setProperty("ErrorsAndProperties",logErrorsAndProperties.isSelected());
+LogErrorsAndProperties=errorListener.getProperty("ErrorsAndProperties");
+ErrorListener.ERRORSANDPROPS=LogErrorsAndProperties.getBooleanValue();
+}
+}
+
+@Override
+public void clearGui() {
+if(ErrorListener.updateAllowed==true)
+{
+super.clearGui();
+initTableModel();
+table.setModel(tableModel);
+basepath.setText("");
+logErrorsAndProperties.setSelected(true);
+Arrays.fill(propertyHeaderArray, null);
+}
+}
+
+private void init() {
+setLayout(new BorderLayout());
+setBorder(makeBorder());
+Box box = Box.createVerticalBox();	
+box.add(makeTitlePanel());
+box.add(createBasePathPanel());
+add(createTablePanel(), BorderLayout.CENTER);
+add(Box.createVerticalStrut(70), BorderLayout.EAST);
+add(createButtonPanel(),BorderLayout.WEST);
+add(box, BorderLayout.NORTH);
+}
+
+public void browse_loc()
+{
+	JFileChooser j = new JFileChooser();
+	j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+	//Integer opt = j.showOpenDialog(this);
+	}
+
+public void actionPerformed(ActionEvent e) {
+String action = e.getActionCommand();
+JFileChooser j = new JFileChooser();
+j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+if (action.equals(DELETE)) {
+deleteArgument();
+} else if (action.equals(ADD)) {
+addArgument();
+}
+else if (action.equals(BRO)) {
+    int returnVal = j.showOpenDialog(this);
+    j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+    	basepath.setText(j.getSelectedFile().getAbsolutePath());
+    }}
+}
+
+private Component createTablePanel() {
+tableModel = new PowerTableModel(
+new String[] { COLUMN_NAMES_0 },
+new Class[] { String.class});
+table = new JTable(tableModel);
+table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+return makeScrollPane(table);
+}
+
+protected void initTableModel() {
+tableModel = new PowerTableModel(
+new String[] { COLUMN_NAMES_0 },
+new Class[] { String.class});
+}
+
+String listed23[] = {"Sample #","Start Time","Thread Name","Label","Sample Time(ms)","Status","Bytes","Latency"};
+JComboBox<String> comboBox = new JComboBox<String>(listed23);
+
+private JPanel createButtonPanel() {
+	
+comboBox.setSelectedIndex(0);
+comboBox.addActionListener(this);
+comboBox.setEnabled(true);
+
+
+	
+add = new JButton(JMeterUtils.getResString("add")); //$NON-NLS-1$
+add.setActionCommand(ADD);
+add.addActionListener(this);
+add.setEnabled(true);
+
+delete = new JButton(JMeterUtils.getResString("delete")); // $NON-NLS-1$
+delete.setActionCommand(DELETE);
+delete.addActionListener(this);
+
+checkDeleteStatus();
+
+JPanel buttonPanel = new JPanel();
+buttonPanel.add(comboBox);
+buttonPanel.add(add);
+buttonPanel.add(selectAll);
+buttonPanel.add(delete);
+return buttonPanel;
+}
+
+int row=0;
+
+protected void addArgument() {
+checkRowCountStatus();
+stopTableEditing();
+//tableModel.addNewRow();
+String b = new String(comboBox.getSelectedItem().toString());
+tableModel.addRow(new Object[] {b});
+tableModel.fireTableDataChanged();
+delete.setEnabled(true);
+int rowToSelect = tableModel.getRowCount() - 1;
+table.setRowSelectionInterval(rowToSelect, rowToSelect);
+}
+
+protected void stopTableEditing() {
+if (table.isEditing()) {
+TableCellEditor cellEditor = table.getCellEditor(table.getEditingRow(), table.getEditingColumn());
+cellEditor.stopCellEditing();
+}
+}
+
+protected void deleteArgument() {
+if (table.isEditing()) {
+TableCellEditor cellEditor = table.getCellEditor(table.getEditingRow(), table.getEditingColumn());
+cellEditor.cancelCellEditing();
+}
+
+int rowSelected = table.getSelectedRow();
+
+if (rowSelected >= 0) {
+
+JMeterProperty SelectedRowValue = null;
+String rowSelectedValue = tableModel.getValueAt(table.getSelectedRow(),0).toString();
+intermediateErrorListenerTestElement.setProperty("SelectedRowValue", rowSelectedValue);
+SelectedRowValue=intermediateErrorListenerTestElement.getProperty("SelectedRowValue");
+intermediateErrorListenerTestElement.removeProperty(SelectedRowValue.toString());
+intermediateErrorListenerTestElement.setProperty("SelectedRowValue",null);
+
+tableModel.removeRow(rowSelected);
+tableModel.fireTableDataChanged();
+
+if (tableModel.getRowCount() == 0) {
+delete.setEnabled(false);
+} else {
+int rowToSelect = rowSelected;
+
+if (rowSelected >= tableModel.getRowCount()) {
+rowToSelect = rowSelected - 1;
+}
+
+table.setRowSelectionInterval(rowToSelect, rowToSelect);
+}
+}
+else
+{
+return;
+}
+}
+public void netw()
+{
+	browse.setActionCommand(BRO);
+	browse.addActionListener(this);
+	browse.setEnabled(true);
+	}
+public JPanel createBasePathPanel()
+{
+JLabel label = new JLabel("Base Directory:");
+
+basepath = new JTextField(10);
+basepath.setName(ErrorListener.BASEPATH);
+label.setLabelFor(basepath);
+browse.setActionCommand("bro");
+JPanel basepathPanel = new JPanel(new BorderLayout(72, 0));
+basepathPanel.add(label, BorderLayout.WEST);
+basepathPanel.add(basepath, BorderLayout.CENTER);
+basepathPanel.add(browse,BorderLayout.EAST);
+netw();
+JPanel optionPanel = new JPanel();
+group = new ButtonGroup();
+logOnlyProperties = new JRadioButton("Log Only Properties"); 
+group.add(logOnlyProperties);
+optionPanel.add(logOnlyProperties);
+
+logErrorsAndProperties = new JRadioButton("Log Errors and Properties");
+group.add(logErrorsAndProperties);
+optionPanel.add(logErrorsAndProperties);
+basepathPanel.add(optionPanel,BorderLayout.SOUTH);
+
+logErrorsAndProperties.setSelected(true);
+logErrorsAndProperties.setActionCommand(ErrorListener.LOG_PROPERTIES);
+logErrorsAndProperties.setActionCommand(ErrorListener.LOG_ERRORS_PROPERTIES);	
+return basepathPanel;
+}
+/* Enable or disable the delete button depending on whether or not there is a row to be deleted */
+protected void checkDeleteStatus() {
+if (tableModel.getRowCount() == 0)
+delete.setEnabled(false);
+else
+delete.setEnabled(true);
+}
+protected boolean checkAddStatus() {
+if (tableModel.getRowCount()==Integer.parseInt(ErrorListener.JPropCount)) {
+JOptionPane.showMessageDialog(null, "Nice Try!!!But you cannot add more properties than configured in the properties file"
+, "Information",
+JOptionPane.OK_OPTION);
+add.setEnabled(false);
+return true;
+}
+else {
+add.setEnabled(true);
+return false;
+}
+}
+
+protected void checkRowCountStatus() {
+if (tableModel.getRowCount()==7) {
+JOptionPane.showMessageDialog(null,
+"Increasing the number of properties shall impact the performance",
+"Warning",
+JOptionPane.WARNING_MESSAGE);	
+}
+}
+
+public void clearData() {
+}
+
+}

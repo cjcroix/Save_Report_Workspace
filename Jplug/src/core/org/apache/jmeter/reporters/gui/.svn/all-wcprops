@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/reporters/gui
+END
+ResultSaverGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/reporters/gui/ResultSaverGui.java
+END
+ResultActionGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1413358/jmeter/trunk/src/core/org/apache/jmeter/reporters/gui/ResultActionGui.java
+END
+SummariserGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1413956/jmeter/trunk/src/core/org/apache/jmeter/reporters/gui/SummariserGui.java
+END

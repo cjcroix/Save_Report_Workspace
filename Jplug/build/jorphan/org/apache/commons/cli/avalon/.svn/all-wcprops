@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1413254/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon
+END
+Token.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/Token.java
+END
+CLOptionDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1226911/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/CLOptionDescriptor.java
+END
+ParserControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/ParserControl.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/package.html
+END
+CLUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/CLUtil.java
+END
+CLArgsParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/CLArgsParser.java
+END
+AbstractParserControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1413254/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/AbstractParserControl.java
+END
+CLOption.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/jorphan/org/apache/commons/cli/avalon/CLOption.java
+END

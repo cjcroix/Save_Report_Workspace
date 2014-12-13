@@ -1,0 +1,8 @@
+K 10
+svn:ignore
+V 63
+bcmail-jdk15on-*.jar
+bcprov-jdk15on-*.jar
+bcpkix-jdk15on-*.jar
+
+END

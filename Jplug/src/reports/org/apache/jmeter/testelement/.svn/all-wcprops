@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1442357/jmeter/trunk/src/reports/org/apache/jmeter/testelement
+END
+AbstractTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1413864/jmeter/trunk/src/reports/org/apache/jmeter/testelement/AbstractTable.java
+END
+ReportPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/testelement/ReportPage.java
+END
+ReportPlan.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1442357/jmeter/trunk/src/reports/org/apache/jmeter/testelement/ReportPlan.java
+END
+AbstractChart.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1413864/jmeter/trunk/src/reports/org/apache/jmeter/testelement/AbstractChart.java
+END
+Table.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/testelement/Table.java
+END
+JTLData.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1413864/jmeter/trunk/src/reports/org/apache/jmeter/testelement/JTLData.java
+END
+LineChart.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/testelement/LineChart.java
+END
+BarChart.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/reports/org/apache/jmeter/testelement/BarChart.java
+END

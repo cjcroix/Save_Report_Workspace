@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1509904/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler
+END
+PackageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/PackageTest.java
+END
+PutWriterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/PutWriterTest.java
+END
+HTTPNullSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/HTTPNullSampler.java
+END
+TestHTTPSamplersAgainstHttpMirrorServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/asf/!svn/ver/1509904/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/TestHTTPSamplersAgainstHttpMirrorServer.java
+END
+PostWriterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1457573/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/PostWriterTest.java
+END
+NullURLConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/1380894/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/NullURLConnection.java
+END
+TestHTTPSamplers.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1353144/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/TestHTTPSamplers.java
+END
+HTTPSampler3.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1505691/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/sampler/HTTPSampler3.java
+END

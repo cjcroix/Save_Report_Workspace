@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1464574/jmeter/trunk/src/protocol/mail/org/apache/jmeter/protocol/smtp/sampler/protocol
+END
+SynchronousTransportListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/mail/org/apache/jmeter/protocol/smtp/sampler/protocol/SynchronousTransportListener.java
+END
+LocalTrustStoreSSLSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/repos/asf/!svn/ver/1382571/jmeter/trunk/src/protocol/mail/org/apache/jmeter/protocol/smtp/sampler/protocol/LocalTrustStoreSSLSocketFactory.java
+END
+TrustAllSSLSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/mail/org/apache/jmeter/protocol/smtp/sampler/protocol/TrustAllSSLSocketFactory.java
+END
+SendMailCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/asf/!svn/ver/1464574/jmeter/trunk/src/protocol/mail/org/apache/jmeter/protocol/smtp/sampler/protocol/SendMailCommand.java
+END

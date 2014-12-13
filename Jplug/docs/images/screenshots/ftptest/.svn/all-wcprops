@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest
+END
+ftp-request.png
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest/ftp-request.png
+END
+threadgroup2.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest/threadgroup2.png
+END
+ftp-results.png
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest/ftp-results.png
+END
+spline-results.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/ftptest/spline-results.png
+END
+ftp-defaults2.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest/ftp-defaults2.png
+END
+ftp-request2.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest/ftp-request2.png
+END
+ftp-defaults.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1503260/jmeter/trunk/docs/images/screenshots/ftptest/ftp-defaults.png
+END

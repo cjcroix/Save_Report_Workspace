@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest
+END
+modify.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/modify.png
+END
+extdel.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extdel.png
+END
+extrequestdefaults.png
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extrequestdefaults.png
+END
+extcompare.png
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extcompare.png
+END
+requestdefaults.png
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/requestdefaults.png
+END
+extsbind.png
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extsbind.png
+END
+extthreadgroup.png
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extthreadgroup.png
+END
+extadd.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extadd.png
+END
+extsearch.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extsearch.png
+END
+extmoddn.png
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extmoddn.png
+END
+extthreadunbind.png
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extthreadunbind.png
+END
+viewtable.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/viewtable.png
+END
+extmod.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extmod.png
+END
+login-config-element.png
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/login-config-element.png
+END
+extviewtree.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extviewtree.png
+END
+delete.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/delete.png
+END
+responseassertion.png
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/responseassertion.png
+END
+search.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/search.png
+END
+threadgroup.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/threadgroup.png
+END
+add.png
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1507788/jmeter/trunk/docs/images/screenshots/ldaptest/add.png
+END
+extthreadbind.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1507838/jmeter/trunk/docs/images/screenshots/ldaptest/extthreadbind.png
+END

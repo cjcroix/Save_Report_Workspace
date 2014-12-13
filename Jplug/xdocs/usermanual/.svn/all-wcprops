@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/asf/!svn/ver/1522085/jmeter/trunk/xdocs/usermanual
+END
+include_controller_tutorial.sxw
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/include_controller_tutorial.sxw
+END
+jmeter_distributed_testing_step_by_step.odt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1337983/jmeter/trunk/xdocs/usermanual/jmeter_distributed_testing_step_by_step.odt
+END
+component_reference.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1521679/jmeter/trunk/xdocs/usermanual/component_reference.xml
+END
+ldapanswer_xml.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1457581/jmeter/trunk/xdocs/usermanual/ldapanswer_xml.xml
+END
+glossary.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/glossary.xml
+END
+include_controller_tutorial.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/include_controller_tutorial.pdf
+END
+jmeter_accesslog_sampler_step_by_step.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/jmeter_accesslog_sampler_step_by_step.pdf
+END
+jmeter_accesslog_sampler_step_by_step.sxw
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/jmeter_accesslog_sampler_step_by_step.sxw
+END
+ldapops_tutor.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1507838/jmeter/trunk/xdocs/usermanual/ldapops_tutor.xml
+END
+boss.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1457581/jmeter/trunk/xdocs/usermanual/boss.xml
+END
+test_plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1457581/jmeter/trunk/xdocs/usermanual/test_plan.xml
+END
+build-jms-topic-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1340240/jmeter/trunk/xdocs/usermanual/build-jms-topic-test-plan.xml
+END
+build-ldap-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1507789/jmeter/trunk/xdocs/usermanual/build-ldap-test-plan.xml
+END
+intro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1517200/jmeter/trunk/xdocs/usermanual/intro.xml
+END
+jmeter_proxy_step_by_step.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1390191/jmeter/trunk/xdocs/usermanual/jmeter_proxy_step_by_step.pdf
+END
+build-ws-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1210229/jmeter/trunk/xdocs/usermanual/build-ws-test-plan.xml
+END
+regular_expressions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1455736/jmeter/trunk/xdocs/usermanual/regular_expressions.xml
+END
+build-adv-web-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/build-adv-web-test-plan.xml
+END
+build-ftp-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1503260/jmeter/trunk/xdocs/usermanual/build-ftp-test-plan.xml
+END
+junitsampler_tutorial.sxw
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/junitsampler_tutorial.sxw
+END
+best-practices.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1513109/jmeter/trunk/xdocs/usermanual/best-practices.xml
+END
+build-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1509897/jmeter/trunk/xdocs/usermanual/build-test-plan.xml
+END
+listeners.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1509908/jmeter/trunk/xdocs/usermanual/listeners.xml
+END
+hints_and_tips.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1391594/jmeter/trunk/xdocs/usermanual/hints_and_tips.xml
+END
+index.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1457581/jmeter/trunk/xdocs/usermanual/index.xml
+END
+functions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1500341/jmeter/trunk/xdocs/usermanual/functions.xml
+END
+jmeter_proxy_step_by_step.odt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1390191/jmeter/trunk/xdocs/usermanual/jmeter_proxy_step_by_step.odt
+END
+remote-test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1457581/jmeter/trunk/xdocs/usermanual/remote-test.xml
+END
+build-jms-point-to-point-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1346152/jmeter/trunk/xdocs/usermanual/build-jms-point-to-point-test-plan.xml
+END
+jmeter_distributed_testing_step_by_step.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/1337983/jmeter/trunk/xdocs/usermanual/jmeter_distributed_testing_step_by_step.pdf
+END
+build-ldapext-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1507838/jmeter/trunk/xdocs/usermanual/build-ldapext-test-plan.xml
+END
+build-web-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1514022/jmeter/trunk/xdocs/usermanual/build-web-test-plan.xml
+END
+build-monitor-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1392938/jmeter/trunk/xdocs/usermanual/build-monitor-test-plan.xml
+END
+junitsampler_tutorial.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/junitsampler_tutorial.pdf
+END
+build-db-test-plan.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/usermanual/build-db-test-plan.xml
+END
+get-started.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1522085/jmeter/trunk/xdocs/usermanual/get-started.xml
+END

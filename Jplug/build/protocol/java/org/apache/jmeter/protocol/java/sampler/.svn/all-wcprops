@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/1514665/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler
+END
+JSR223SamplerResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/asf/!svn/ver/1406343/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JSR223SamplerResources_fr.properties
+END
+JavaSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JavaSampler.java
+END
+JSR223Sampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/asf/!svn/ver/1425481/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JSR223Sampler.java
+END
+JavaSamplerContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JavaSamplerContext.java
+END
+JSR223SamplerResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/asf/!svn/ver/1406343/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JSR223SamplerResources.properties
+END
+BSFSamplerResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/asf/!svn/ver/1237196/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/BSFSamplerResources_fr.properties
+END
+BSFSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1514665/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/BSFSampler.java
+END
+BSFSamplerResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/asf/!svn/ver/1237196/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/BSFSamplerResources.properties
+END
+BeanShellSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/BeanShellSampler.java
+END
+BSFSamplerBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1237195/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/BSFSamplerBeanInfo.java
+END
+JSR223SamplerBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/asf/!svn/ver/1500526/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JSR223SamplerBeanInfo.java
+END
+JavaSamplerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/JavaSamplerClient.java
+END
+AbstractJavaSamplerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/java/org/apache/jmeter/protocol/java/sampler/AbstractJavaSamplerClient.java
+END

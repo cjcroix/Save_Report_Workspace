@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1522070/jmeter/trunk/src/core/org/apache/jmeter
+END
+DynamicClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1206717/jmeter/trunk/src/core/org/apache/jmeter/DynamicClassLoader.java
+END
+JMeter.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1519176/jmeter/trunk/src/core/org/apache/jmeter/JMeter.java
+END
+ProxyAuthenticator.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/ProxyAuthenticator.java
+END
+help.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/core/org/apache/jmeter/help.txt
+END
+NewDriver.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1518785/jmeter/trunk/src/core/org/apache/jmeter/NewDriver.java
+END

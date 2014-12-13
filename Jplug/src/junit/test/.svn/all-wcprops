@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/asf/!svn/ver/1505367/jmeter/trunk/src/junit/test
+END
+RerunTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/RerunTest.java
+END
+DummyAnnotatedTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1505367/jmeter/trunk/src/junit/test/DummyAnnotatedTest.java
+END
+TearDownTestFail.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/TearDownTestFail.java
+END
+AfterAnnotatedTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/AfterAnnotatedTest.java
+END
+SetupTestFail.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/SetupTestFail.java
+END
+SetupTestError.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/SetupTestError.java
+END
+Junit4AnnotationsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/Junit4AnnotationsTest.java
+END
+BeforeAnnotatedTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/junit/test/BeforeAnnotatedTest.java
+END

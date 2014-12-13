@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1518103/jmeter/trunk/src/components/org/apache/jmeter/assertions
+END
+XMLAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1478975/jmeter/trunk/src/components/org/apache/jmeter/assertions/XMLAssertion.java
+END
+SubstitutionElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/SubstitutionElement.java
+END
+BSFAssertionResources_pt_BR.properties
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/BSFAssertionResources_pt_BR.properties
+END
+CompareAssertionBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/CompareAssertionBeanInfo.java
+END
+DurationAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/DurationAssertion.java
+END
+BeanShellAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/BeanShellAssertion.java
+END
+CompareAssertionResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/CompareAssertionResources.properties
+END
+BSFAssertionResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/BSFAssertionResources.properties
+END
+XPathAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/1429387/jmeter/trunk/src/components/org/apache/jmeter/assertions/XPathAssertion.java
+END
+BSFAssertionResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/BSFAssertionResources_fr.properties
+END
+SMIMEAssertionTestElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1440004/jmeter/trunk/src/components/org/apache/jmeter/assertions/SMIMEAssertionTestElement.java
+END
+HTMLAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/HTMLAssertion.java
+END
+JSR223AssertionResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/1406343/jmeter/trunk/src/components/org/apache/jmeter/assertions/JSR223AssertionResources_fr.properties
+END
+SMIMEAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/1518103/jmeter/trunk/src/components/org/apache/jmeter/assertions/SMIMEAssertion.java
+END
+BSFAssertionBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/BSFAssertionBeanInfo.java
+END
+BSFAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/BSFAssertion.java
+END
+JSR223AssertionBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/asf/!svn/ver/1298866/jmeter/trunk/src/components/org/apache/jmeter/assertions/JSR223AssertionBeanInfo.java
+END
+CompareAssertionResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/CompareAssertionResources_fr.properties
+END
+JSR223Assertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/asf/!svn/ver/1426222/jmeter/trunk/src/components/org/apache/jmeter/assertions/JSR223Assertion.java
+END
+CompareAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1440004/jmeter/trunk/src/components/org/apache/jmeter/assertions/CompareAssertion.java
+END
+ResponseAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1443164/jmeter/trunk/src/components/org/apache/jmeter/assertions/ResponseAssertion.java
+END
+JSR223AssertionResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1406343/jmeter/trunk/src/components/org/apache/jmeter/assertions/JSR223AssertionResources.properties
+END
+BSFAssertionResources_pl.properties
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/BSFAssertionResources_pl.properties
+END
+SizeAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/SizeAssertion.java
+END
+MD5HexAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/MD5HexAssertion.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/components/org/apache/jmeter/assertions/package.html
+END
+XMLSchemaAssertion.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/1413951/jmeter/trunk/src/components/org/apache/jmeter/assertions/XMLSchemaAssertion.java
+END

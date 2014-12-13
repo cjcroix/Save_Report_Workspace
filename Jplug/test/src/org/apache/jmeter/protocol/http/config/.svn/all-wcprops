@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1353144/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/config
+END
+MultipartUrlConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/config/MultipartUrlConfigTest.java
+END
+UrlConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1353144/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/config/UrlConfigTest.java
+END

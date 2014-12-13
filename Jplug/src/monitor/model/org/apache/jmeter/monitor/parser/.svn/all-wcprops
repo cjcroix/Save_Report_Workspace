@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1413262/jmeter/trunk/src/monitor/model/org/apache/jmeter/monitor/parser
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/monitor/model/org/apache/jmeter/monitor/parser/Constants.java
+END
+Parser.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/monitor/model/org/apache/jmeter/monitor/parser/Parser.java
+END
+ParserImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/1413262/jmeter/trunk/src/monitor/model/org/apache/jmeter/monitor/parser/ParserImpl.java
+END
+MonitorHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1295110/jmeter/trunk/src/monitor/model/org/apache/jmeter/monitor/parser/MonitorHandler.java
+END

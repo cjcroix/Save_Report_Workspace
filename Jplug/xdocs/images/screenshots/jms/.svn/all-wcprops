@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1237062/jmeter/trunk/xdocs/images/screenshots/jms
+END
+jms_sub.png
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1234168/jmeter/trunk/xdocs/images/screenshots/jms/jms_sub.png
+END
+JMS_Point-to-Point.png
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1237062/jmeter/trunk/xdocs/images/screenshots/jms/JMS_Point-to-Point.png
+END
+jms_messaging.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/images/screenshots/jms/jms_messaging.png
+END
+jms_pub.png
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1234168/jmeter/trunk/xdocs/images/screenshots/jms/jms_pub.png
+END
+jms_config.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1196286/jmeter/trunk/xdocs/images/screenshots/jms/jms_config.png
+END

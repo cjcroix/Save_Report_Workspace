@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler
+END
+TCPClientDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/1204160/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/TCPClientDecorator.java
+END
+TCPSampler.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/TCPSampler.java
+END
+TCPClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1377070/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/TCPClient.java
+END
+BinaryTCPClientImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/BinaryTCPClientImpl.java
+END
+TCPClientImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/TCPClientImpl.java
+END
+ReadException.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/ReadException.java
+END
+AbstractTCPClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1413958/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/AbstractTCPClient.java
+END
+LengthPrefixedBinaryTCPClientImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/tcp/org/apache/jmeter/protocol/tcp/sampler/LengthPrefixedBinaryTCPClientImpl.java
+END

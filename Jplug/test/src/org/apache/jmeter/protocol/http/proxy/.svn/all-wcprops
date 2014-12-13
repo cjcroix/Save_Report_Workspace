@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1457573/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/proxy
+END
+TestProxyControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/asf/!svn/ver/1196286/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/proxy/TestProxyControl.java
+END
+TestHttpRequestHdr.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/1457573/jmeter/trunk/test/src/org/apache/jmeter/protocol/http/proxy/TestHttpRequestHdr.java
+END

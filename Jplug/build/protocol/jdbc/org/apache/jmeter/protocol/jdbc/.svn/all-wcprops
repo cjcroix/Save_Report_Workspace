@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1521338/jmeter/trunk/src/protocol/jdbc/org/apache/jmeter/protocol/jdbc
+END
+AbstractJDBCTestElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1521338/jmeter/trunk/src/protocol/jdbc/org/apache/jmeter/protocol/jdbc/AbstractJDBCTestElement.java
+END
+JDBCTestElementBeanInfoSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/asf/!svn/ver/1501306/jmeter/trunk/src/protocol/jdbc/org/apache/jmeter/protocol/jdbc/JDBCTestElementBeanInfoSupport.java
+END

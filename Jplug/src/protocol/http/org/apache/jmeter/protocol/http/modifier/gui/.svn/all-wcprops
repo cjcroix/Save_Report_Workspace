@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1516202/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/gui
+END
+RegExUserParametersGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/gui/RegExUserParametersGui.java
+END
+AnchorModifierGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/gui/AnchorModifierGui.java
+END
+ParamModifierGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/asf/!svn/ver/1516202/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/gui/ParamModifierGui.java
+END
+URLRewritingModifierGui.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/gui/URLRewritingModifierGui.java
+END

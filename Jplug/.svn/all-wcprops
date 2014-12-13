@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/repos/asf/!svn/ver/1522663/jmeter/trunk
+END
+NOTICE
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/asf/!svn/ver/1502962/jmeter/trunk/NOTICE
+END
+fb-csv.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/asf/!svn/ver/1196286/jmeter/trunk/fb-csv.xsl
+END
+checkstyle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/asf/!svn/ver/1196286/jmeter/trunk/checkstyle.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/asf/!svn/ver/1522087/jmeter/trunk/build.xml
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/asf/!svn/ver/1413253/jmeter/trunk/README
+END
+STATUS
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/asf/!svn/ver/1196286/jmeter/trunk/STATUS
+END
+fb-excludes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/asf/!svn/ver/1457570/jmeter/trunk/fb-excludes.xml
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/repos/asf/!svn/ver/1502962/jmeter/trunk/LICENSE
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/asf/!svn/ver/1522662/jmeter/trunk/build.properties
+END
+eclipse.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/asf/!svn/ver/1522662/jmeter/trunk/eclipse.classpath
+END
+doap_JMeter.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/asf/!svn/ver/1439674/jmeter/trunk/doap_JMeter.rdf
+END
+rat-excludes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/asf/!svn/ver/1200306/jmeter/trunk/rat-excludes.txt
+END
+eclipse.readme
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/asf/!svn/ver/1200305/jmeter/trunk/eclipse.readme
+END

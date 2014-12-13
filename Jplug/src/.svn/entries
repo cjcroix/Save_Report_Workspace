@@ -1,0 +1,68 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk/src
+http://svn.apache.org/repos/asf
+
+
+
+2013-09-11T22:11:49.993052Z
+1522070
+sebb
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+components
+dir
+
+core
+dir
+
+examples
+dir
+
+functions
+dir
+
+i18nedit.properties
+file
+
+
+
+
+2013-09-14T12:30:36.000000Z
+524e7e2e0cf61f2b401726e352ac3cc4
+2013-05-18T18:03:56.381677Z
+1484155
+milamber
+has-props
+
+jorphan
+dir
+
+junit
+dir
+
+monitor
+dir
+
+protocol
+dir
+
+reports
+dir
+

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest
+END
+threadgroup1.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/threadgroup1.png
+END
+threadgroup2.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/threadgroup2.png
+END
+JDBCRequest2.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/JDBCRequest2.png
+END
+jdbc-request.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/jdbc-request.png
+END
+jdbc-config.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/jdbc-config.png
+END
+graph-results.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/graph-results.png
+END
+JDBCRequest.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/JDBCRequest.png
+END
+JDBCRequest3.png
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1196286/jmeter/trunk/docs/images/screenshots/jdbctest/JDBCRequest3.png
+END

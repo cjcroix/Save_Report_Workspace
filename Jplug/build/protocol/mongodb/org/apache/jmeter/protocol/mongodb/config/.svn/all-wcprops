@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/asf/!svn/ver/1514975/jmeter/trunk/src/protocol/mongodb/org/apache/jmeter/protocol/mongodb/config
+END
+MongoDBHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/asf/!svn/ver/1503054/jmeter/trunk/src/protocol/mongodb/org/apache/jmeter/protocol/mongodb/config/MongoDBHolder.java
+END
+MongoSourceElementBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/asf/!svn/ver/1514975/jmeter/trunk/src/protocol/mongodb/org/apache/jmeter/protocol/mongodb/config/MongoSourceElementBeanInfo.java
+END
+MongoSourceElementResources_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/asf/!svn/ver/1477841/jmeter/trunk/src/protocol/mongodb/org/apache/jmeter/protocol/mongodb/config/MongoSourceElementResources_fr.properties
+END
+MongoSourceElementResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/asf/!svn/ver/1477841/jmeter/trunk/src/protocol/mongodb/org/apache/jmeter/protocol/mongodb/config/MongoSourceElementResources.properties
+END
+MongoSourceElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/asf/!svn/ver/1498111/jmeter/trunk/src/protocol/mongodb/org/apache/jmeter/protocol/mongodb/config/MongoSourceElement.java
+END

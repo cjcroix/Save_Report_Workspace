@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/1516202/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier
+END
+URLRewritingModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/asf/!svn/ver/1442365/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/URLRewritingModifier.java
+END
+UserSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/UserSequence.java
+END
+UserParameterXMLParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/UserParameterXMLParser.java
+END
+ParamModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/ParamModifier.java
+END
+AnchorModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/AnchorModifier.java
+END
+UserParameterXMLErrorHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/UserParameterXMLErrorHandler.java
+END
+ParamMask.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/asf/!svn/ver/1196286/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/ParamMask.java
+END
+RegExUserParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/asf/!svn/ver/1457590/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/RegExUserParameters.java
+END
+UserParameterXMLContentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/asf/!svn/ver/1413957/jmeter/trunk/src/protocol/http/org/apache/jmeter/protocol/http/modifier/UserParameterXMLContentHandler.java
+END

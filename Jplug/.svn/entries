@@ -1,0 +1,231 @@
+8
+
+dir
+1523226
+http://svn.apache.org/repos/asf/jmeter/trunk
+http://svn.apache.org/repos/asf
+
+
+
+2013-09-12T17:02:13.788131Z
+1522663
+sebb
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+Jplug.iml
+file
+0
+
+
+add
+
+LICENSE
+file
+
+
+
+
+2013-09-14T12:36:46.000000Z
+e886e73f5411aefce13793815ea6cb5d
+2013-07-14T12:25:29.292623Z
+1502962
+sebb
+has-props
+
+NOTICE
+file
+
+
+
+
+2013-09-14T12:36:46.000000Z
+98f1c2d87f9548c46f4f314c704e21fb
+2013-07-14T12:25:29.292623Z
+1502962
+sebb
+has-props
+
+README
+file
+
+
+
+
+2013-09-14T12:36:48.000000Z
+d70f98b59e281bb475c1a0de019cc59f
+2012-11-24T19:48:37.029489Z
+1413253
+pmouawad
+has-props
+
+STATUS
+file
+
+
+
+
+2013-09-14T12:36:46.000000Z
+f344d68f18f6e74f56f4a8af9e044525
+2007-09-09T22:55:13.170169Z
+574097
+sebb
+has-props
+
+bin
+dir
+
+build.properties
+file
+
+
+
+
+2013-09-14T12:36:48.000000Z
+a0d4ba52d49afd9fdaba6be35c501dec
+2013-09-12T17:01:14.069728Z
+1522662
+sebb
+has-props
+
+build.xml
+file
+
+
+
+
+2013-09-14T12:36:48.000000Z
+c31c14413bb9193d09f25cfb663dce26
+2013-09-11T22:51:37.502700Z
+1522087
+sebb
+has-props
+
+checkstyle.xml
+file
+
+
+
+
+2013-09-14T12:36:48.000000Z
+f33c3d1483dbfa7b2276dcc81c46717f
+2011-01-07T17:17:30.737108Z
+1056399
+sebb
+has-props
+
+doap_JMeter.rdf
+file
+
+
+
+
+2013-09-14T12:36:50.000000Z
+bcabf2260c98d939cdc19a0acda03292
+2013-01-28T22:23:55.153031Z
+1439674
+milamber
+has-props
+
+docs
+dir
+
+eclipse.classpath
+file
+
+
+
+
+2013-09-14T12:36:50.000000Z
+8023b3a2e817958693902b03e85b4430
+2013-09-12T17:01:14.069728Z
+1522662
+sebb
+has-props
+
+eclipse.readme
+file
+
+
+
+
+2013-09-14T12:36:44.000000Z
+1d18ea75b86824267405943debf8b6be
+2011-11-10T12:44:09.041681Z
+1200305
+sebb
+has-props
+
+extras
+dir
+
+fb-csv.xsl
+file
+
+
+
+
+2013-09-14T12:36:46.000000Z
+0884a14ae3dabf16a089304992f297ab
+2007-01-07T19:22:29.101797Z
+493815
+sebb
+has-props
+
+fb-excludes.xml
+file
+
+
+
+
+2013-09-14T12:36:50.000000Z
+1497a75679bfea6a6784750b4315c5f8
+2013-03-17T21:48:24.365404Z
+1457570
+sebb
+has-props
+
+lib
+dir
+
+licenses
+dir
+
+rat-excludes.txt
+file
+
+
+
+
+2013-09-14T12:36:50.000000Z
+f4f06406cc7d87b086e15401f1940224
+2011-11-10T12:44:29.166786Z
+1200306
+sebb
+has-props
+
+res
+dir
+
+src
+dir
+
+test
+dir
+
+xdocs
+dir
+
