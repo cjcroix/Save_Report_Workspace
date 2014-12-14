@@ -15,3 +15,4 @@ It also emails the test report once the test has been completed.
 
 User Guide 
 ----------
+The user guide fro the plugin is included in the folder as User_Guide_for_Save_Report.pdf
